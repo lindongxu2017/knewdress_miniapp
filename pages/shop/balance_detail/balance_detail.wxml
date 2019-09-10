@@ -1,0 +1,19 @@
+<!--pages/balance_detail/balance_detail.wxml-->
+<navigationBar nav-title="余额明细" />
+<view class='lable'>
+    <view>时间</view>
+    <view>明细</view>
+    <view>余额</view>
+</view>
+<view class='list'>
+    <view class='item' wx:for="{{list}}" wx:key="{{index}}">
+        <view>
+            <view class='date'>2019-06-13</view>
+            <view class='time'>12：08：44</view>
+        </view>
+        <view class='text'>+5</view>
+        <view class='text'>￥188.00</view>
+    </view>
+</view>
+
+<view class='no-datda'>暂无数据...</view>

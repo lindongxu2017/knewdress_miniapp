@@ -1,0 +1,26 @@
+<!--template/shop/classify/classify.wxml-->
+<view class='content'>
+    <view class='goods-content'>
+        <view class='left-classify'>
+            <scroll-view scroll-x>
+                <view class='list'>
+                    <block wx:for="{{classify}}" wx:key="{{index}}">
+                        <view class='item {{index == active ? "active" : ""}}' data-index="{{index}}" data-id="{{item.id}}" bindtap='selectCate'>{{item.name}}</view>
+                    </block>
+                </view>
+            </scroll-view>
+        </view>
+        <view class='right-goods'>
+            <scroll-view scroll-x>
+                <view class='goods-list'>
+                    <block wx:for="{{cate}}" wx:key="{{index}}">
+                        <view class='item {{down_active == index ? "active" : ""}}' data-cid="{{item.id}}" data-name='{{item.name}}' data-index="{{index}}" bindtap='golist'>
+                            <view class='cate-name'>{{item.name}}</view>
+                        </view>
+                    </block>
+                </view>
+                <view class='no-data' wx:if="{{cate.length == 0}}">暂无数据</view>
+            </scroll-view>
+        </view>
+    </view>
+</view>

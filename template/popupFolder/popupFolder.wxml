@@ -1,0 +1,13 @@
+<!--template/popupFolder/popupFolder.wxml-->
+<view class='mask' wx:if='{{popupVisible}}'>
+  <view class='wrapper'>
+    <view class='title'>编辑分组</view>
+    <view class='input-wrapper'>
+      <input bindinput="inputPrint" placeholder='1-15个字' value="{{inputValue}}"></input>
+    </view>
+    <view class='popup-footer'>
+      <view class='cancel' bindtap='closeFolder'>取消</view>
+      <view class='confirm' bindtap='confirm'>确定</view>
+    </view>
+  </view>
+</view>

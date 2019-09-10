@@ -1,0 +1,36 @@
+/* template/noData/noDaat.wxss */
+.no-data {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx 0 85px;
+}
+.line {
+  flex: 1;
+  height: 2rpx;
+  background-color: #eee;
+}
+.text {
+  font-size: 28rpx;
+  color: #999;
+  padding: 0 40rpx;
+  line-height: 1;
+  position: relative;
+}
+.text::before, .text::after {
+  content: "";
+  position: absolute;
+  width: 8rpx;
+  height: 8rpx;
+  border-radius: 50%;
+  will-change: transform;
+  top: 50%;
+  margin-top: -3rpx;
+  background-color: #eee;
+}
+.text::before {
+  left: 0;
+}
+.text::after {
+  right: 0;
+}

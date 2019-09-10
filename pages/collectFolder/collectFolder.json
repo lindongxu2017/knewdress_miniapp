@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "navigationBar": "/template/navigationBar/navigationBar",
+    "popupFolder": "/template/popupFolder/popupFolder",
+    "autoloading": "/template/autoloading/autoloading"
+  }
+}

@@ -1,0 +1,6 @@
+<!--template/loading/loading.wxml-->
+<view class='load-wrapper'>
+  <view class="loading">
+      <view class="load-icon" wx:if="{{isShow}}"><image class='load-img' src="/icon/loading2.png"></image></view>
+  </view>
+</view>

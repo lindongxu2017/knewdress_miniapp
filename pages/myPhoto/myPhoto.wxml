@@ -1,0 +1,27 @@
+<!--pages/myPhoto/myPhoto.wxml-->
+<navigationBar/>
+<view class='uploadImg'>
+    <!-- <text class='add-btn' bindtap='uplaodImg'>上传自拍</text> -->
+    <text wx:if="{{photo_list.length && !showDelete}}" class='edit' bindtap='isShowDelete'>编辑</text>
+    <text wx:if="{{photo_list.length && showDelete}}" class='cancle' bindtap='isShowDelete'>完成</text>
+</view>
+<block wx:if="{{!photo_list.length}}">
+    <view class='no-photo'>
+        <image src='/icon/no-photo.png'></image>
+        <view>上传自拍寻找和你相似的博主</view>
+    </view>
+</block>
+<block>
+    <view class='list-wrapper photo'>
+        <view wx:for="{{photo_list}}" wx:key="{{index}}">
+            <image hidden='{{!showDelete}}' class='delete-icon' src='/icon/delete.png' data-index='{{index}}' data-id="{{item.id}}" catchtap='deleteItem'></image>
+            <view class='img-wrapper' data-index='{{index}}' catchtap='previewImg'>
+                <image mode='aspectFill' lazy-load="{{true}}" src='{{item.image_url}}'></image>
+            </view>
+        </view>
+    </view>
+    <view class='uploadImg'>
+        <text bindtap='uplaodImg'>上传自拍</text>
+    </view>
+    <nodata no-more="{{noMore_photo}}"></nodata>
+</block>

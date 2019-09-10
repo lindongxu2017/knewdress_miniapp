@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "navigationBar": "/template/navigationBar/navigationBar",
+        "van-cell": "../../../miniprogram_npm/vant-weapp/cell/index",
+        "van-field": "../../../miniprogram_npm/vant-weapp/field/index"
+    }
+}

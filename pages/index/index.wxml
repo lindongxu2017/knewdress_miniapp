@@ -1,0 +1,52 @@
+<!--index.wxml-->
+<navigationBar></navigationBar>
+
+<van-tabs active="{{ infoTypeActive }}" bind:change="switchInfoType" color="#ffdb32" border="{{false}}">
+  <van-tab title="推荐">
+    <block wx:if="{{showRecommendPlaceholder}}">
+      <waterfall show-height="{{palceholderShowHeight}}"></waterfall>
+    </block>
+    <block wx:if="{{info_recommend}}">
+      <list bindfinishFirstLoad="finishFirstLoadRecommend" bindisloading="changeIsloadingStatus" data-listType="recommendlist" id="recommendlist" info-list="{{info_recommend}}"></list>
+    </block>
+  </van-tab>
+  <van-tab title="热门">
+    <block wx:if="{{showHotPlaceholder}}">
+      <waterfall show-height="{{palceholderShowHeight}}"></waterfall>
+    </block>
+    <block wx:if="{{info_hot}}">
+      <list bindfinishFirstLoad="finishFirstLoadHot" indisloading="changeIsloadingStatus" data-listType="hotlist" id="hotlist" info-list="{{info_hot}}"></list>
+    </block>
+  </van-tab>
+  <van-tab title="种草">
+    <block wx:if="{{shopPlaceholder}}">
+      <waterfall show-height="{{palceholderShowHeight}}"></waterfall>
+    </block>
+    <block wx:if="{{info_shop}}">
+      <list bindfinishFirstLoad="finishFirstLoadShop" indisloading="changeIsloadingStatus" data-listType="shoplist" id="shoplist" info-list="{{info_shop}}"></list>
+    </block>
+  </van-tab>
+</van-tabs>
+
+<!-- <image class="infoType-wrapper-icon" style="top: {{statusBarHeight + 50}}px" catchtap='uploadImg' src='/icon/photo-icon.png'></image> -->
+
+<!-- <view class='uplaod-tips' wx:if="{{showTips}}">
+    <view>
+        <text>上传自拍寻找适合你的搭配</text>
+        <view class='close-wrapper'>
+            <text class='upload-tips-btn' catchtap='goUploadPage'>上传</text>
+            <image src='/icon/close.png' bindtap='hideTips'></image>
+        </view>
+    </view>
+</view> -->
+
+<!-- <view class='infoType-wrapper'>
+    <view class='type-item {{infoTypeActive == 0 ? "active" : ""}}' data-type='0' bindtap='switchInfoType'>推荐</view>
+    <view class='type-item {{infoTypeActive == 1 ? "active" : ""}}' data-type='1' bindtap='switchInfoType'>热门</view>
+    <view class='type-item {{infoTypeActive == 2 ? "active" : ""}}' data-type='2' bindtap='switchInfoType'>种草</view>
+    <image catchtap='uploadImg' src='/icon/photo-icon.png'></image>
+    <view class='tip-popup' wx:if="{{showTips}}">
+        <image src='/icon/tip-popup.png'></image>
+        <view class='text'>用服饰图片搜索搭配</view>
+    </view>
+</view> -->

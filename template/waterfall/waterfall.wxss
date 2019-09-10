@@ -1,0 +1,55 @@
+/* template/waterfall/waterfall.wxss */
+.list {
+  padding: 15px 0 15px 15px;
+  font-size: 0;
+  background-color: #fff;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.list-item {
+  display: inline-block;
+  width: (50% - 15px);
+  width: -webkit-calc(50% - 15px);
+  margin-right: 15px;
+  margin-bottom: 20px;
+}
+.list-item .img {
+  width: 100%;
+  height: 180px;
+  background-color: #efefef;
+  border-radius: 10rpx;
+  margin-bottom: 7px;
+}
+.desc {
+  width: 100%;
+  height: 14px;
+  background-color: #efefef;
+  margin-bottom: 7px;
+}
+.desc.short {
+  width: 70%;
+}
+.time-support-wrapper {
+  display: flex;
+  display: -webkit-flex;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  align-items: center;
+  -webkit-align-items: center;
+}
+.time {
+  width: 40px;
+  height: 14px;
+  background-color: #efefef;
+}
+.support {
+  font-size: 0;
+}
+.support view {
+  width: 20px;
+  height: 14px;
+  margin-left: 5px;
+  background-color: #efefef;
+  display: inline-block;
+  align-items: center;
+}

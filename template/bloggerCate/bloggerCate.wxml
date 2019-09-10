@@ -1,0 +1,15 @@
+<!--template/bloggerCate/bloggerCate.wxml-->
+<block wx:if="{{cateListSelected.length > 0}}">
+    <scroll-view class='cate-list no-bg' scroll-x scroll-with-animation>
+        <block wx:for="{{cateListSelected}}" wx:key="{{index}}">
+            <view class='cate-item selected' data-index="{{index}}" bindtap='cancelSelect'>{{item.name}}</view>
+        </block>
+    </scroll-view>
+</block>
+<block wx:if="{{cateList.length > 0}}">
+    <scroll-view class='cate-list' scroll-x scroll-with-animation>
+        <block wx:for="{{cateList}}" wx:key="{{index}}">
+            <view class='cate-item' data-item="{{item}}" bindtap='selectCate'>{{item.name}}</view>
+        </block>
+    </scroll-view>
+</block>

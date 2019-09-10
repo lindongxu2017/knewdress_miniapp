@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "autoloading": "/template/autoloading/autoloading",
+    "list": "/template/list/list",
+    "nodata": "/template/noData/noData",
+    "nomore": "/template/nomore/nomore",
+    "navigationBar": "/template/navigationBar/navigationBar",
+    "popupFolder": "/template/popupFolder/popupFolder",
+    "van-popup": "../../../miniprogram_npm/vant-weapp/popup/index"
+  }
+}

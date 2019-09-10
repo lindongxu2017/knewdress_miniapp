@@ -1,0 +1,11 @@
+/* template/clotheslist/clotheslist.wxss */
+.list {
+    position: relative;
+    padding-bottom: 15px;
+}
+.img {
+    position: absolute;
+    left: 0;
+    width: 0;
+    border-radius: 10rpx;
+}

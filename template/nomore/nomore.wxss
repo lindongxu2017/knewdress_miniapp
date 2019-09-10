@@ -1,0 +1,15 @@
+/* template/nomore/nomore.wxss */
+.nomore {
+  text-align: center;
+}
+.nomore .img {
+  width: 160rpx;
+  height: 160rpx;
+  margin-bottom: 30rpx;
+}
+.nomore .text {
+  text-align: center;
+  line-height: 1;
+  font-size: 28rpx;
+  color: #999;
+}

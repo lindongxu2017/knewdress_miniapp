@@ -1,0 +1,31 @@
+<!--pages/cart/cart.wxml-->
+<navigationBar nav-title="购物车"/>
+<view class='list' wx:if="{{goodslist.length > 0}}">
+    <van-swipe-cell right-width="{{ 65 }}" wx:for="{{goodslist}}" wx:key="{{index}}">
+        <view class='item'>
+            <view class='check' data-index='{{index}}' data-item="{{item}}" catchtap='check'>
+                <view class='circle' hidden="{{item.check}}"></view>
+                <icon type="success" size="18" color='#f44' hidden="{{!item.check}}" />
+            </view>
+            <view class='goods-info'>
+                <image class='goods-img' src='{{item.photo_x}}' mode='aspectFill'></image>
+                <view class='info-text'>
+                    <view class='desc van-ellipsis'>{{item.pro_name}}</view>
+                    <view class='num'>x {{item.num}}</view>
+                    <view class='price'>￥{{item.price}}</view>
+                </view>
+            </view>
+        </view>
+        <view class='del-cell' slot="right" data-index="{{index}}" data-id='{{item.id}}' bindtap='delItem'>删除</view>
+    </van-swipe-cell>
+</view>
+
+<view class='no-data' wx:if="{{goodslist.length == 0}}">
+    <image src='/icon/noMore-2.png'></image>
+    <view class='tips'>购物车是空的</view>
+    <!-- <view class='btn'>去逛逛</view> -->
+</view>
+
+<block wx:if="{{goodslist.length > 0}}">
+    <van-submit-bar custom-class="van-hairline--top" price="{{ total }}" button-text="提交订单" bind:submit="onSubmit" />
+</block>

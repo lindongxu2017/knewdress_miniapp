@@ -1,0 +1,7 @@
+<navigationBar/>
+<view class='auth'>
+	<image src="/icon/logo.png"></image>
+		<view class="txt">申请获得你的公开信息（昵称、头像等）</view>
+	<button  wx:if="canIUse" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">微信授权</button>
+  <!-- <view wx:if="{{!canIUse}}">请升级微信版本</view> -->
+</view>

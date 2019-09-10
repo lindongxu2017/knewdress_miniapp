@@ -1,0 +1,123 @@
+/* pages/colletFolder/colletFolder.wxss */
+page {
+  padding-bottom: 150rpx;
+}
+.check-list {
+  padding: 0 10rpx 30rpx 30rpx;
+  font-size: 0;
+}
+.check-list .check-item {
+  line-height: 1;
+  font-size: 28rpx;
+  color: #B5B7B9;
+  padding: 16rpx 35rpx;
+  background-color: #F8F8F8;
+  border: 2rpx solid #E3E3E3;
+  border-radius: 60rpx;
+  display: inline-block;
+  vertical-align: middle;
+  box-sizing: border-box;
+  margin: 20rpx 20rpx 0 0;
+}
+.select-list {
+  font-size: 0;
+  padding: 0 30rpx;
+}
+
+.folder-items {
+  padding: 40rpx 0;
+  border-bottom: 1rpx solid #eee;
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  -webkit-align-items: center;
+}
+.folder-items image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 28rpx;
+}
+.folder-name {
+  font-size: 30rpx;
+  color: #474747;
+  flex: 1;
+  -webkit-flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.folder-name .num {
+  color: #B5B7B9;
+  margin-left: 10rpx;
+}
+.create-folder-btn {
+  width: 230rpx;
+  line-height: 70rpx;
+  text-align: center;
+  border-radius: 70rpx;
+  font-size: 0;
+  border: 1px solid #E5E5E5;
+}
+
+.create-folder-btn image {
+  width: 40rpx;
+  height: 40rpx;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10rpx;
+}
+.create-folder-btn text {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 30rpx;
+  color: #474747;
+}
+.btn-group {
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+  -webkit-align-items: center;
+  justify-content: space-around;
+  -webkit-justify-content: space-around;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20rpx 0;
+  box-sizing: border-box;
+  background-color: #fff;
+  border-top: 1px solid #eee;
+}
+
+.btn-group > view {
+  width: 300rpx;
+  text-align: center;
+  font-size: 30rpx;
+}
+
+.save {
+  line-height: 70rpx;
+  color: #474747;
+  background-color: #FFDB32;
+  border: 1px solid #FFDB32;
+  border-radius: 70rpx;
+}
+
+.nodata {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  font-size: 0;
+  text-align: center;
+}
+.nodata image {
+  width: 30%;
+  margin: 40% 0 20rpx;
+}
+.nodata > view {
+  font-size: 28rpx;
+  color: #B5B7B9;
+  text-align: center;
+}

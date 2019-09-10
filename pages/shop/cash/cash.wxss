@@ -1,0 +1,23 @@
+/* pages/cash/cash.wxss */
+.cell {
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    -webkit-align-items: center;
+    padding: 20rpx 30rpx;
+}
+.cell .title {
+    font-size: 32rpx;
+    margin-left: 10rpx;
+}
+.tips {
+    padding: 10rpx 0 0 30rpx;
+    font-size: 24rpx;
+    color: #f44;
+}
+.btn {
+    padding: 80rpx 30rpx 0;
+}
+.cash-btn {
+    width: 170rpx;
+}

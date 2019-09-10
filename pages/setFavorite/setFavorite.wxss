@@ -1,0 +1,131 @@
+/* pages/setFavorite/setFavorite.wxss */
+.upload-area {
+  background-color: #f6f6f6;
+  font-size: 0;
+  text-align: center;
+  padding: 30rpx 0 85rpx;
+}
+.img-area {
+  display: inline-block;
+  position: relative;
+}
+.img-area > image {
+  width: 240rpx;
+  height: 240rpx;
+}
+.img-area > image.avatar {
+  position: absolute;
+  border-radius: 50%;
+  top: 20rpx;
+  left: 20rpx;
+  width: 200rpx;
+  height: 200rpx;
+}
+.img-area > image.phone-icon {
+  position: absolute;
+  width: 56rpx;
+  height: 56rpx;
+  right: 7rpx;
+  bottom: 15rpx;
+  z-index: 2;
+}
+
+.select-area {
+  border-top-left-radius: 30rpx;
+  border-top-right-radius: 30rpx;
+  position: relative;
+  transform: translateZ(0);
+  background-color: #fff;
+  margin-top: -15rpx;
+}
+.tip-bar {
+  color: #333131;
+  font-size: 34rpx;
+  font-weight: bold;
+  text-align: center;
+  padding: 48rpx 0 15rpx;
+  letter-spacing: 4rpx;
+}
+.border {
+  text-align: center;
+  font-size: 0;
+  margin-bottom: 70rpx;
+}
+.border image {
+  height: auto;
+}
+.section {
+  padding: 0 0 0 30rpx;
+  padding-bottom: 40rpx;
+}
+.title {
+  font-size: 30rpx;
+  color: #474747;
+  font-weight: bold;
+  margin-bottom: 26rpx;
+  padding-left: 30rpx;
+  position: relative;
+}
+.title::before {
+  content: "";
+  position: absolute;
+  width: 10rpx;
+  height: 10rpx;
+  border-radius: 50%;
+  background-color: #474747;
+  top: 18rpx;
+  left: 0;
+}
+.item-list {
+  font-size: 0;
+}
+.item-list > view {
+  font-size: 26rpx;
+  color: #474747;
+  line-height: 56rpx;
+  width: 146rpx;
+  background-color: #F9F9F9;
+  display: inline-block;
+  margin-right: 30rpx;
+  margin-bottom: 20rpx;
+  border-radius: 56rpx;
+  text-align: center;
+  border: 2rpx solid #F9F9F9;
+  box-sizing: content-box;
+}
+.item-list > view.active {
+  background-color: rgba(255,219,50,0.1);
+  border-color: rgba(255,219,50,1);
+}
+.confirm {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  padding: 20rpx 30rpx;
+  border-top: 2rpx solid #EEEEEE;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #fff;
+  display: flex;
+  display: -webkit-flex;
+  justify-content: space-around;
+  -webkit-justify-content: space-around;
+  align-items: center;
+  -webkit-align-items: center;
+}
+.confirm text {
+  flex: 1;
+  -webkit-flex: 1;
+  margin: 0 30rpx;
+  line-height: 75rpx;
+  text-align: center;
+  background-color: #FFDB32;
+  border: 1px solid #FFDB32;
+  font-size: 30rpx;
+  color: #474747;
+  border-radius: 75rpx;
+}
+.confirm text.reset {
+  background-color: #fff;
+  color: #FFDB32;
+}

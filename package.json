@@ -1,0 +1,19 @@
+{
+  "name": "qinaida_wx",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://lindongxu@45.32.178.179:29418/qinaida_wx.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "vant-weapp": "^0.5.14"
+  }
+}

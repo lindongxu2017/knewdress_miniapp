@@ -1,0 +1,26 @@
+/* template/bloggerCate/bloggerCate.wxss */
+.cate-list {
+    padding: 23rpx 20rpx;
+    white-space: nowrap;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+}
+.cate-list.no-bg {
+    background-color: #fff;
+}
+.cate-item {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 14rpx 35rpx;
+    border: 2rpx solid #DCDCDC;
+    color: #B5B7B9;
+    font-size: 27rpx;
+    border-radius: 55rpx;
+    margin-right: 20rpx;
+    line-height: 1;
+}
+
+.cate-item.selected {
+    background-color: #F4F4F4;
+    color: #474747;
+}

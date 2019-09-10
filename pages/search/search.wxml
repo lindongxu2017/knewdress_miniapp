@@ -1,0 +1,32 @@
+<!--pages/search/search.wxml-->
+<navigationBar></navigationBar>
+<view class='search-wrapper'>
+  <view class='search-bar'>
+    <view class='icon-text'>
+      <image mode='widthFix' src='/icon/query.png'></image>
+      <input class='search-input' value="{{seachValue}}" bindinput='inputPrint' bindconfirm='confirmQuery' confirm-type='search' placeholder='输入名字搜索博主' focus='{{inputFocus}}' bindfocus="inputfocus" bindblur="inputblur" placeholder-style='color:#B3B3B3;'></input>
+    </view>
+    <!-- <image catchtap='uplaodImg' mode='widthFix' class='uplaod-icon' src='/icon/close-search.png'></image> -->
+    <image wx:if="{{seachValue}}" catchtap='goback' class='uplaod-icon' src='/icon/close-search.png'></image>
+  </view>
+  <!-- <text class='cancle' bindtap='goback'>取消</text> -->
+</view>
+
+<view hidden="{{seachValue}}">
+  <view class='title-clear' hidden='{{loglist.length == 0}}'>
+    <view class='title' wx:if="{{!hasOptionKey}}">搜索记录</view>
+    <view class='clear' bindtap='clearlog'>清除</view>
+  </view>
+  <view class='loglist'>
+    <view class='log-item' wx:for="{{loglist}}" wx:key="{{index}}" data-value="{{item.search_info}}" bindtap='assignment'>{{item.search_info}}</view>
+  </view>
+  <view class='no-searchlog' hidden='{{ !nolog }}'>暂无搜索记录</view>
+</view>
+
+<view class='complelist' wx:if="{{seachValue != ''}}">
+  <view wx:for="{{complelist}}" wx:key="{{index}}">
+    <blogger bind:asynData="asynData" is-show="{{true}}" blogger-item="{{item}}"></blogger>
+  </view>
+</view>
+
+<autoloading is-show="{{isloading}}"> </autoloading>

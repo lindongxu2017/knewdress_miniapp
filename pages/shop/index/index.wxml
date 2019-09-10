@@ -1,0 +1,47 @@
+<!--pages/shop/index/index.wxml-->
+<view class='content'>
+    <navigationBar nav-title="商城" />
+    <view class='tab-wrapper'>
+        <van-tabs active="{{ active }}" swipeable border="{{false}}" color="#ffdb32" swipe-threshold="6" bind:change="onChange">
+            <van-tab title="推荐">
+                <view class='goods-list'>
+                    <block wx:for="{{goods}}" wx:key="{{index}}">
+                        <view class='item'>
+                            <goods item-info="{{item}}"></goods>
+                        </view>
+                    </block>
+                    <block wx:if="{{loading}}">
+                        <loading/>
+                    </block>
+                    <block wx:if="{{noMore}}">
+                        <nomore/>
+                    </block>
+                </view>
+            </van-tab>
+            <van-tab title="分类">
+                <classify bindgetlist="getCateGoods" id="classify" />
+                <view class='goods-list'>
+                    <block wx:for="{{list}}" wx:key="{{index}}">
+                        <view class='item'>
+                            <goods item-info="{{item}}"></goods>
+                        </view>
+                    </block>
+                    <block wx:if="{{loading2}}">
+                        <loading/>
+                    </block>
+                    <block wx:if="{{noMore2}}">
+                        <nomore/>
+                    </block>
+                    <block wx:if="{{noData2}}">
+                        <view class='no-data'>暂无数据...</view>
+                    </block>
+                </view>
+            </van-tab>
+        </van-tabs>
+    </view>
+    <view class='cart-icon'>
+        <navigator url='/pages/shop/cart/cart' hover-class='none'>
+            <van-icon name="shopping-cart-o" color="#fff" />
+        </navigator>
+    </view>
+</view>

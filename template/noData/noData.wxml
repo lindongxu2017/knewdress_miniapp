@@ -1,0 +1,6 @@
+<!--template/noData/noDaat.wxml-->
+<view class='no-data' hidden='{{!noMore}}'>
+  <view class='line'></view>
+  <view class='text'>没有更多了</view>
+  <view class='line'></view>
+</view>

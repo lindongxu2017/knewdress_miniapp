@@ -1,0 +1,6 @@
+<!--pages/upload/index.wxml-->
+<navigationBar></navigationBar>
+<view class="img-wrapper">
+    <image src="/icon/camare.png" mode="widthFix" catchtap="uploadImg"></image>
+</view>
+<view class="tips">拍衣服搜搭配</view>

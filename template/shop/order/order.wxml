@@ -1,0 +1,27 @@
+<!--template/shop/order/order.wxml-->
+<view class='order-content'>
+    <view class='order-sn-status'>
+        <view class='sn'>订单号：{{infoItem.order_sn}}</view>
+        <view class='status {{infoItem.status == 50 ? "finish" : ""}}'>{{infoItem.desc}}</view>
+    </view>
+    <view class='goods-list'>
+        <view class='item' wx:for="{{infoItem.prolist}}" wx:key="{{index}}" data-id="{{item.pid}}" bindtap='godetail'>
+            <image class='image' src='{{item.photo_x}}' mode='aspectFill'></image>
+            <view class='info'>
+                <view class='title'>{{item.name}}</view>
+                <view class='attr'>
+                    <view class='text' wx:for="{{item.attr}}" wx:for-item="obj" wx:for-index="index" wx:key="{{order}}">{{obj}}</view>
+                </view>
+                <view class='price-num'>
+                    <view class='price'>￥{{item.price}}</view>
+                    <view class='num'>x{{item.num}}</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class='status-operation'>
+        <view class='btn' wx:if="{{infoItem.status == 10}}" bindtap='pay'>支付</view>
+        <view class='btn' wx:if="{{infoItem.status == 30}}" bindtap='confirm'>确认收货</view>
+        <view class='btn' wx:if="{{infoItem.status == 10}}" bindtap='del'>取消订单</view>
+    </view>
+</view>

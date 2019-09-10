@@ -1,0 +1,19 @@
+/* pages/goods/goods.wxss */
+.list {
+    padding: 20rpx 10rpx;
+    font-size: 0;
+}
+.list .item {
+    padding: 0 10rpx;
+    margin-bottom: 20rpx;
+    width: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+}
+.no-data {
+    color: #999;
+    font-size: 28rpx;
+    text-align: center;
+    padding-top: 200rpx;
+    padding-bottom: 30rpx;
+}

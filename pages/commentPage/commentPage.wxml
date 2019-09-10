@@ -1,0 +1,21 @@
+<navigationBar></navigationBar>
+<view class='users'>
+  <view class='item' wx:for="{{commentlist}}" wx:key="{{index}}" wx:for-item="obj">
+    <view class='info'>
+        <image class='avatar' mode="aspectFill" src='{{obj.user_info.headimgurl}}'></image>
+        <view class='name'>{{obj.user_info.nickname}}</view>
+    </view>
+    <view class='comment-content-wrapper'>
+        <view class='content'>{{obj.content}}</view>
+        <view class='time'>{{obj.create_from}}</view>
+    </view>
+  </view>
+</view>
+
+<view class='input-fixed-wrapper'>
+  <input class='text-input' cursor-spacing="10" value='{{inputValue}}' focus='{{inputIsFocus}}' confirm-type='send' bindblur="inputBlur" bindinput="inputPrint" bindconfirm="comment" placeholder='发表评论...' placeholder-style='color:#B3B3B3;'></input>
+</view>
+
+<view class='launch' bindtap='inputFocus' hidden='{{inputIsFocus}}'>
+  <image mode='aspectFill' src='/icon/comment_active.png'></image><text>写评论</text>
+</view>

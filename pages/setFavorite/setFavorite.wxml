@@ -1,0 +1,39 @@
+<!--pages/setFavorite/setFavorite.wxml-->
+<!-- <view class='upload-area'>
+  <view class='img-area' bindtap='uploadImg'>
+    <image src='/icon/head-stroke.png'></image>
+    <image class='phone-icon' src='/icon/photo-icon.png'></image>
+    <image class='avatar' mode='aspectFill' wx:if="{{!imgUrl}}" src='/icon/head-bg.png'></image>
+    <image class='avatar' mode='aspectFill' wx:if="{{imgUrl}}" src='{{imgUrl}}'></image>
+  </view>
+</view> -->
+<navigationBar></navigationBar>
+<view class='select-area'>
+  <view class='tip-bar'>我们会根据这些信息为你推荐搭配及博主</view>
+  <view class='border'>
+    <image mode='widthFix' src='/icon/border.png'></image>
+  </view>
+  <view class='section'>
+    <view class='title'>图片发布时间：</view>
+    <view class='item-list'>
+      <view wx:for="{{year}}" class='{{item.active == 1 ? "active" : ""}}' data-type="year" data-index="{{index}}" wx:key="{{index}}" bindtap='screen'>{{item.name}}</view>
+    </view>
+  </view>
+  <view class='section'>
+    <view class='title'>博主性别：</view>
+    <view class='item-list'>
+      <view wx:for="{{sex}}" class='{{item.active == 1 ? "active" : ""}}' data-type="sex" data-index="{{index}}" wx:key="{{index}}" bindtap='screen'>{{item.name}}</view>
+    </view>
+  </view>
+  <view class='section'>
+    <view class='title'>博主族裔：</view>
+    <view class='item-list'>
+      <view wx:for="{{ethnic}}" class='{{item.active == 1 ? "active" : ""}}' data-type="ethnic" data-index="{{index}}" wx:key="{{index}}" bindtap='screen'>{{item.name}}</view>
+    </view>
+  </view>
+</view>
+
+<view class='confirm'>
+  <text class='reset' bindtap='reset'>重置</text>
+  <text bindtap='confirm'>确认</text>
+</view>

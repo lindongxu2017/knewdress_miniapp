@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+        "van-submit-bar": "../../../miniprogram_npm/vant-weapp/submit-bar/index",
+        "loading": "../../../template/shop/loading/loading",
+        "van-swipe-cell": "/miniprogram_npm/vant-weapp/swipe-cell/index",
+        "navigationBar": "../../../template/navigationBar/navigationBar"
+    },
+    "navigationBarTitleText": "购物车"
+}

@@ -1,0 +1,26 @@
+<!--pages/infomation/infomation.wxml-->
+<navigationBar nav-title="个人信息" />
+<van-cell-group>
+    <van-field value="{{ userinfo.height }}" label="身高" placeholder="请输入身高" data-key="userinfo.height" bind:input="input">
+        <view slot="right-icon">cm</view>
+    </van-field>
+    <van-field value="{{ userinfo.weight }}" label="体重" placeholder="请输入体重" data-key="userinfo.weight" bind:input="input">
+        <view slot="right-icon">kg</view>
+    </van-field>
+    <van-cell title="性别">
+        <view class='value'>
+            <picker bindchange="bindPickerChange" value="{{userinfo.sex - 1}}" range="{{array}}" range-key='name'>
+                <view class="picker {{sex_str ? 'value' : ''}}">{{sex_str ? sex_str : '请选择'}}</view>
+            </picker>
+        </view>
+    </van-cell>
+    <van-field type="number" value="{{ userinfo.age }}" label="龄年" placeholder="请输入龄年(例：23)" data-key="userinfo.age" bind:input="input">
+        <view slot="right-icon">岁</view>
+    </van-field>
+    <van-field value="{{ userinfo.city }}" label="城市" placeholder="请输入城市(例：深圳)" data-key="userinfo.city" bind:input="input"></van-field>
+    <van-field value="{{ userinfo.biography }}" label="简介" type="textarea" placeholder="请输入个人简介" autosize data-key="userinfo.biography" bind:input="input" />
+</van-cell-group>
+
+<view class='release-wrapper'>
+    <view class='btn' bindtap='save'>保存</view>
+</view>

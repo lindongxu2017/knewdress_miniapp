@@ -1,0 +1,21 @@
+<!--pages/mergeResult/mergeResult.wxml-->
+<navigationBar></navigationBar>
+<image class='result-img' mode='aspectFit' style='z-index: {{showOrigin? "1" : "2"}}; height: calc(100% - {{70 + 45 + statusBarHeight }}px); height: -webkit-calc(100% - {{70 + 45 + statusBarHeight }}px)' src='{{imgUrl}}' bindtap='previview'></image>
+<image class='result-img' mode='aspectFit' style='z-index: {{showOrigin? "2" : "1"}}; height: calc(100% - {{70 + 45 + statusBarHeight }}px); height: -webkit-calc(100% - {{70 + 45 + statusBarHeight }}px)' src='{{saveImgUrl}}' bindtap='previview'></image>
+<view class='operation-wrapper'>
+  <view bindtap='uploadUserFace'>
+    <image src='/icon/reload.png'></image>
+    <view>更新自拍</view>
+  </view>
+  <!-- <view bindtap='goRank'>
+    <image src='/icon/rank.png'></image>
+    <view>排行榜</view>
+  </view> -->
+  <view bindtouchstart="checkOrigin" bindtouchmove='checkOrigin' bindtouchcancel='checkResult' bindtouchend='checkResult'>
+    <image src='/icon/origin-icon.png'></image>
+    <view>查看原图</view>
+  </view>
+  <!-- <image src='/icon/camera-icon.png' data-type='1' bindtap='uploadUserFace'></image>
+  <image src='/icon/Photograph.png' data-type='2' bindtap='uploadUserFace' style='width: 100rpx;height:100rpx;'></image>
+  <image src='/icon/download.png' bindtap='save'></image> -->
+</view>

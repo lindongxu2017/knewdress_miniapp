@@ -1,0 +1,4 @@
+<!--template/clotheslist/clotheslist.wxml-->
+<view class='list' style='height: {{boxHeight}}px'>
+    <image class='img' wx:for="{{list}}" wx:key="{{index}}" src='{{item.image_url}}' data-index="{{index}}" style="width: {{itemWidth}}px; height: {{item.showHeight}}px; transform: translate({{item.left}}px, {{item.top}}px)" mode='aspectFill'></image>
+</view>

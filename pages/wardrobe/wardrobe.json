@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+      "lable": "/template/lable2/lable2",
+      "navigationBar": "/template/navigationBar/navigationBar"
+  }
+}

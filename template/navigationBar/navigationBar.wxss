@@ -1,0 +1,83 @@
+/* template/navigationBar/navigationBar.wxss */
+
+.navigationBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 45px;
+    background-color: #fff;
+    text-align: center;
+    line-height: 45px;
+    z-index: 9999999;
+    overflow: hidden;
+}
+
+.pageBack {
+    position: absolute;
+    left: 10px;
+    font-size: 0;
+    width: 87px;
+    height: 32px;
+    border: 1rpx solid #e5e5e5;
+    border-radius: 32px;
+    box-sizing: border-box;
+    line-height: 1;
+    text-align: left;
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    -webkit-align-items: center;
+    overflow: hidden;
+}
+
+.pageBack > .view {
+    flex: 1;
+    -webkit-flex: 1;
+    text-align: center;
+    height: 100%;
+    padding-top: 7px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.pageBack.single {
+    width: 52px;
+    overflow: hidden;
+}
+
+.pageBack.single:before {
+    display: none;
+    overflow: hidden;
+}
+
+.pageBack:before {
+    content: "";
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    margin-left: -1rpx;
+    width: 2rpx;
+    height: 60%;
+    background-color: #e5e5e5;
+    overflow: hidden;
+}
+
+.pageBack .bar-icon {
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.pageBack .bar-icon.home {
+    width: 18px;
+    height: 18px;
+    overflow: hidden;
+}
+
+.pageTitle {
+    font-size: 13pt;
+    display: inline-block;
+    overflow: hidden;
+}

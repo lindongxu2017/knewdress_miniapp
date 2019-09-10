@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+        "nomore": "../../../template/shop/nomore/nomore",
+        "loading": "../../../template/shop/loading/loading",
+        "goods": "../../../template/shop/goods/goods",
+        "navigationBar": "/template/navigationBar/navigationBar"
+    },
+    "navigationBarTitleText": "商品分类"
+}

@@ -1,0 +1,40 @@
+<!--pages/shop/pay/pay.wxml-->
+<navigationBar nav-title="填写订单" />
+
+<view class='delivery' wx:if="{{address_info.id}}">
+    <van-cell center border="{{false}}" label="{{address_info.address}}" url="/pages/shop/address_list/address_list?check=1" is-link>
+        <view slot="title">
+            <view class="van-cell-text">{{address_info.name}}</view>
+            <view class='phone'>{{address_info.tel}}</view>
+        </view>
+    </van-cell>
+    <image src='/icon/address-line.jpg'></image>
+</view>
+
+<view wx:if="{{!address_info.id}}">
+    <van-cell title="地址" url="/pages/shop/address_list/address_list" is-link />
+</view>
+
+<view class='pay-way'>
+    <van-cell label="支付方式" value="{{pay_way_list[pay_way]}}" border="{{false}}" bind:click="selectPayWay">
+        <van-icon slot="right-icon" name="weapp-nav" class="custom-icon" />
+    </van-cell>
+</view>
+
+<view class='goods-list'>
+    <view class='item' wx:for="{{info.pro}}" wx:key="{{index}}">
+        <image src='{{item.photo_x}}'></image>
+        <view class='info'>
+            <view class='title'>{{item.name}}</view>
+            <view class='attr'>
+                <view wx:for="{{item.attr}}" wx:for-item="obj" wx:for-index="index" wx:key="{{order}}">{{obj.name}}</view>
+            </view>
+            <view class='price-num'>
+                <view class='price'>￥{{item.price}}</view>
+                <view class='num'>x{{item.num}}</view>
+            </view>
+        </view>
+    </view>
+</view>
+
+<van-submit-bar price="{{ info.price * 100 }}" button-text="支付" bind:submit="onSubmit" />

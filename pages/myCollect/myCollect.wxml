@@ -1,0 +1,63 @@
+<!--pages/myCollect/myCollect.wxml-->
+<navigationBar/>
+
+<view class='classify-list'>
+    <!-- 已选标签 -->
+    <view class='selected-list selected' wx:if="{{collect_selected.length}}">
+        <text class='cate-lable'>已选</text>
+        <view class='selected-content'>
+            <scroll-view class='selected-scroll' scroll-x>
+                <view class='selected-item' wx:for="{{collect_selected}}" wx:key="{{item.id}}" data-index='{{index}}' bindtap='cancle_collect_select'>
+                    <text>{{item.cate_name}}</text>
+                </view>
+            </scroll-view>
+        </view>
+    </view>
+    <!-- 上级标签 -->
+    <view class='selected-list up' style='padding: {{collect_up.length == 0 ? "20rpx" : ""}}'>
+        <image class='edit-icon' src='/icon/edit_icon.png' bindtap='goEdit'></image>
+        <view class='tips-popup-wrapper' wx:if="{{collect_up.length == 0}}">
+            <image src='/icon/edit-label-popup.png' bindtap='goEdit'></image>
+            <text>编辑你的标签</text>
+        </view>
+        <view class='selected-content' wx:else>
+            <scroll-view class='selected-scroll' scroll-x bindscrolltolower="get_collect_up_list">
+                <view class='selected-item {{collect_up_active == index ? "active" : ""}}' wx:for="{{collect_up}}" wx:key="{{item.id}}" data-type="1" data-index='{{index}}' bindtap='select_collect_up'>
+                    <text>{{item.cate_name}}</text>
+                </view>
+            </scroll-view>
+        </view>
+    </view>
+    <!-- 下级标签 -->
+    <view class='selected-list down' wx:if="{{collect_down.length}}">
+        <text>已选择</text>
+        <scroll-view class='selected-scroll' scroll-x bindscrolltolower="getSelectList">
+            <view class='selected-item' wx:for="{{collect_down}}" data-type="2" wx:key="{{item.id}}" data-index='{{index}}' bindtap='select_collect_down'>
+                <text>{{item.cate_name}}</text>
+            </view>
+        </scroll-view>
+    </view>
+</view>
+
+<view class='scroll-wrapper'>
+    <!-- scrolltolower -->
+    <view class='list-wrapper'>
+        <view wx:for="{{collect_list}}" wx:key="{{item.id}}" data-index="{{index}}" data-id="{{item.blog_info.blog_id}}" bindtap='godetail'>
+            <view class='img-wrapper'>
+                <image mode='aspectFill' lazy-load="{{true}}" src='{{item.blog_info.imgurl_360}}'></image>
+            </view>
+        </view>
+    </view>
+    <autoloading is-show="{{collect_loading}}"></autoloading>
+    <view class='no-data-wrapper' wx:if="{{noData || collect_list.length == 0}}">
+        <image class='no-data-icon' src='/icon/noMore.png'></image>
+        <view class='text'>哎呀！你还没有收藏过图片</view>
+        <view class='text'>图片加标签收藏，查找更方便</view>
+        <view class='process-wrapper'>
+            <image class='icon' src='/icon/doubt-active.png'></image>
+            <text>如何添加标签？</text>
+        </view>
+    </view>
+    <!-- <nomore no-more="{{noData}}"></nomore> -->
+    <nodata no-more="{{noMore && collect_list.length != 0}}"></nodata>
+</view>

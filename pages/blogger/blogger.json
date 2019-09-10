@@ -1,0 +1,14 @@
+{
+  "usingComponents": {
+    "blogger": "/template/blogger/blogger",
+    "autoloading": "/template/autoloading/autoloading",
+    "nodata": "/template/noData/noData",
+    "nomore": "/template/nomore/nomore",
+    "navigationBar": "/template/navigationBar/navigationBar",
+    "bloggerPlaceholder": "/template/bloggerPlaceholder/bloggerPlaceholder",
+    "bloggerCate": "/template/bloggerCate/bloggerCate",
+    "van-tab": "/miniprogram_npm/vant-weapp/tab/index",
+    "van-tabs": "/miniprogram_npm/vant-weapp/tabs/index"
+  },
+  "enablePullDownRefresh": true
+}

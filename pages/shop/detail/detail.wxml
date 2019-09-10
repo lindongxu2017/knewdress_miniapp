@@ -1,0 +1,85 @@
+<!--pages/detail/detail.wxml-->
+<navigationBar nav-title="商品详情" />
+<view class='goods-info'>
+    <view class='goods-img'>
+        <image src='{{info.photo_d}}' mode='widthFix'></image>
+    </view>
+    <view class='goods-cell'>
+        <view class='goods-name'>{{info.name}}</view>
+        <view class='goods-intro'>{{info.intro}}</view>
+        <view class='goods-price-num'>
+            <view class='goods-price'>￥{{info.price}} 免运费</view>
+            <view class='goods-num'>库存: {{info.num}} 件</view>
+        </view>
+    </view>
+</view>
+
+<view class='rich-text-content'>
+    <van-tabs active="{{ active }}" bind:change="onChange" border="{{false}}" color="#ffdb32" swipe-threshold="6">
+        <van-tab title="详情">
+            <view style='padding-top: 15px;'>
+                <import src="/wxParse/wxParse.wxml" />
+                <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+            </view>
+        </van-tab>
+        <van-tab title="搭配">
+            <view wx:if="{{goodsBlog.length > 0}}">
+                <list show-list="{{goodsBlog}}" />
+            </view>
+        </van-tab>
+    </van-tabs>
+</view>
+
+<van-goods-action>
+    <van-goods-action-icon icon="chat-o" text="客服" open-type="contact" />
+    <van-goods-action-icon icon="cart-o" text="购物车" bind:click="onClickIcon" />
+    <van-goods-action-icon icon="photo-o" text="海报" bind:click="createPoster" />
+    <van-goods-action-button text="加入购物车" type="warning" data-type="1" bind:click="onClickButton" />
+    <van-goods-action-button text="立即购买" data-type="2" bind:click="onClickButton" />
+</van-goods-action>
+
+<view class='poster-wrapper' wx:if="{{poster && popup2}}">
+    <image src='{{poster}}' mode='widthFix'></image>
+</view>
+
+<van-popup show="{{ popup2 }}" overlay position="bottom" safe-area-inset-top overlay-style="background-color: rgba(0,0,0,0);">
+    <view class='popup'>
+        <view class='popup-title'>分享至</view>
+        <view class='popup-list'>
+            <view class='popup-list-item'>
+                <image src='/icon/wx.png'></image>
+                <view>微信好友</view>
+                <button class='share-btn' open-type='share'></button>
+            </view>
+            <view class='popup-list-item' bindtap='savePoster'>
+                <image src='/icon/download_2.png'></image>
+                <view>保存到相册</view>
+            </view>
+        </view>
+        <view class='popup-cancel' bindtap='hideAction2'>取消</view>
+    </view>
+</van-popup>
+
+<van-popup show="{{popupVisible}}" position="bottom" overlay-style="background-color: rgba(0,0,0,0.5);" safe-area-inset-bottom bind:click-overlay="closePopup">
+    <view class='sku-wrapper' catchtouchmove='{{false}}'>
+        <view class='close-icon' bindtap='closePopup'>
+            <van-icon name="close" color="#666" />
+        </view>
+        <view class='goods-card'>
+            <van-card price="{{info.price}}" title="{{info.name}}" desc="{{info.intro}}" thumb="{{info.photo_x}}" title-class="goods-card-title" price-class="goods-card-price" desc-class="goods-card-desc" />
+        </view>
+        <view class='specs-list'>
+            <view class='specs-title'>规格</view>
+            <view class='specs-item' wx:for="{{sku_specs}}" wx:key="{{index}}">
+                <view class='specs-span-wrapper {{obj.check == 1 ? "active" : ""}}' wx:for="{{item.list}}" wx:for-item="obj" wx:for-index="order" wx:key="{{order}}" data-index="{{index}}" data-order="{{order}}" bindtap='checkSpecs'>
+                    <view class='span-item'>{{obj.name}}</view>
+                </view>
+            </view>
+        </view>
+        <view class='goods-num'>
+            <view class='specs-title'>数量</view>
+            <van-stepper max="{{info.num}}" bind:change="goodsNumChange" />
+        </view>
+        <view class='submit' bindtap='submit'>确认</view>
+    </view>
+</van-popup>

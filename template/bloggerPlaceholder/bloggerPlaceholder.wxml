@@ -1,0 +1,17 @@
+<!--template/bloggerPlaceholder/bloggerPlaceholder.wxml-->
+
+<view class='list'>
+  <view class='item' wx:for="{{3}}" wx:key="{{index}}">
+    <view class='header'>
+      <view class='avatar'></view>
+      <view class='info'>
+        <view></view>
+        <view></view>
+      </view>
+      <view class='btn'></view>
+    </view>  
+    <view class='img-list'>
+      <view class='img-item' wx:for="{{4}}" wx:key="{{index}}"></view>
+    </view>
+  </view>
+</view>

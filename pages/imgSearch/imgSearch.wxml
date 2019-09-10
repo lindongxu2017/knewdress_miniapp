@@ -1,0 +1,69 @@
+<navigationBar></navigationBar>
+<!--------------------------->
+<view class="main-wrapper">
+  <view class='main-content-wrapper' style='height: {{contentHeight}}px;'>
+    <image src='{{showUrl}}' bindload="setImgInfo" mode='aspectFit' style='width: 100%; height: 100%'></image>
+    <view class='frame-wrapper' style='width: {{imgShowWidth != 0 ? imgShowWidth : windowWidth}}px; margin-left: {{imgShowWidth != 0 ? (windowWidth - imgShowWidth) / 2 : 0 }}px'>
+      <view class='frame-item' wx:for="{{frameItem}}" wx:key="{{index}}" style='left: {{item.positions.x_min * 100}}%; top: {{item.positions.y_min * 100}}%; width: {{(item.positions.x_max - item.positions.x_min) * 100}}%; height: {{(item.positions.y_max - item.positions.y_min) * 100}}%;'></view>
+    </view>
+    <view style='position: absolute; top: 0; left: 0; height: {{contentHeight}}px; width: {{imgShowWisetImgInfodth != 0 ? imgShowWidth : windowWidth}}px; margin-left: {{imgShowWidth != 0 ? (windowWidth - imgShowWidth) / 2 : 0 }}px ' wx:if="{{frameItem}}">
+      <view class='mask' style='transform: translateX({{leftTop.x}}px) translateY({{leftTop.y - 1000}}px) translateZ(0);'></view>
+      <view class='mask' style='transform: translateX({{leftTop.x + initWidth}}px) translateY({{leftTop.y}}px) translateZ(0);'></view>
+      <view class='mask' style='transform: translateX({{leftTop.x + initWidth - 1000}}px) translateY({{leftTop.y + initHeight}}px) translateZ(0);'></view>
+      <view class='mask' style='transform: translateX({{leftTop.x - 1000}}px) translateY({{leftTop.y + initHeight - 1000}}px) translateZ(0);'></view>
+    </view>
+
+    <movable-area out-of-bounds wx:if="{{frameItem}}" class="movable-area" style='height: {{contentHeight}}px; width: {{imgShowWidth != 0 ? imgShowWidth : windowWidth}}px; margin-left: {{imgShowWidth != 0 ? (windowWidth - imgShowWidth) / 2 : 0 }}px'>
+      <movable-view id="wrapper"  animation="{{delay}}" direction="all" style='width: {{initWidth}}px; height: {{initHeight}}px;background-color: transparent' x="{{leftTop.x}}" y="{{leftTop.y}}" bindtouchend='frameMoveEnd' bindchange="frameMoveView">
+        <view class='clip-area'>
+          <image src="/icon/single.png"></image>
+          <image src="/icon/single.png"></image>
+          <image src="/icon/single.png"></image>
+          <image src="/icon/single.png"></image>
+        </view>
+      </movable-view>
+      <movable-view class='clip-wrapper' animation="{{delay}}" direction="all" style='width: 30px; height: 30px;' x="{{initWidth + leftTop.x - 15}}" y="{{initHeight + leftTop.y - 15}}" bindtouchend='custome' bindchange="moveChangerightdown">
+      </movable-view>
+      <movable-view class='clip-wrapper' animation="{{delay}}" direction="all" style='width: 30px; height: 30px;' x="{{leftTop.x - 15}}" y="{{initHeight + leftTop.y - 15}}" bindtouchend='custome' bindchange="moveChangeletfdown">
+      </movable-view>
+      <movable-view class='clip-wrapper' animation="{{delay}}" direction="all" style='width: 30px; height: 30px;' x="{{leftTop.x - 15}}" y="{{leftTop.y - 15}}" bindtouchend='custome' bindchange="moveChangelefttop">
+      </movable-view>
+      <movable-view class='clip-wrapper' animation="{{delay}}" direction="all" style='width: 30px; height: 30px;' x="{{initWidth + leftTop.x - 15}}" y="{{leftTop.y - 15}}" bindtouchend='custome' bindchange="moveChangerighttop">
+      </movable-view>
+    </movable-area>
+  </view>
+
+  <view class='mid-mask' bindtouchmove='preventMove' hidden='{{!open}}'></view>
+
+  <movable-area style="height: {{windowHeight - contentHeight}}px">
+    <movable-view y="{{y}}"
+    animation="{{false}}"
+    direction="{{scrollTop > 0 ? 'horizontal' : 'vertical'}}"
+    bindchange="moveChange"
+    bindtouchend='touchEnd'>
+      <view class='scroll-wrapper' style='height: {{windowHeight * 0.9}}px; transform: translateY({{open ? windowHeight*0.1 - contentHeight : -(windowHeight - contentHeight) / 2}}px)'>
+        <view class='head-img-wrapper' bindtouchstart='touchStart'>
+          <image mode='aspectFill' src='{{showUrl}}' wx:if='{{open}}'></image>
+        </view>
+        <scroll-view
+          bindtouchstart='touchStart'
+          scroll-y="{{open}}"
+          style="height: 100%;"
+          bindscroll="scrollView"
+          bindscrolltolower="onReachBottom"
+          catchtouchmove='todo'
+        >
+          <block wx:if="{{listinfo}}">
+            <list pad-b="{{true}}" bind:itemListInfo="setItemInfo" id="list" info-list="{{listinfo}}"></list>
+          </block>
+        </scroll-view>
+      </view>
+    </movable-view>
+  </movable-area>
+
+</view>
+
+<view class='show-view' hidden='{{frameItem}}'>
+  <view class='scan'></view>
+  <image class='img' mode='aspectFill' src='{{showUrl}}'></image>
+</view>

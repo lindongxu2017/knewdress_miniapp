@@ -1,0 +1,16 @@
+<!--pages/wardrobeSimilar/wardrobeSimilar.wxml-->
+<navigationBar/>
+<image class='img' src='{{url}}' mode='widthFix'></image>
+
+<view class='lable-list'>
+    <image class='edit-icon' src='/icon/edit_icon.png' bindtap='goEdit'></image>
+    <block wx:for="{{selectedlist}}" wx:key="{{index}}">
+        <view class='lable'>{{item.cate_name || item.name}}</view>
+    </block>
+</view>
+
+<view class='cell-title'>搭配建议</view>
+
+<block wx:if="{{listinfo}}">
+    <list id="list" info-list="{{listinfo}}"></list>
+</block>

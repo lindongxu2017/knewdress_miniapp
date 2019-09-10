@@ -1,0 +1,37 @@
+<!--template/list/list.wxml-->
+<view class='container-wrapper' style='padding-bottom: {{padB ? 80 : 0}}px'>
+    <view class='list-wrapper' style='padding-left: {{layoutData.gap}}px; height: {{layoutData.totalHeight ? layoutData.totalHeight : ""}}px;'>
+        <!-- <view class='list-item' wx:for="{{list}}" wx:key="{{index}}" hidden='{{ item.top < scrollTop - 2000 || item.top + item.height > scrollTop + windowHeight + 1000 }}' style='width: {{layoutData.itemWidth}}px; transform: translateX({{item.left}}px) translateY({{item.top}}px);' data-id="{{item.id}}" bindtap="godetail"> -->
+        <view class='list-item' wx:for="{{list}}" wx:key="{{index}}" style='width: {{layoutData.itemWidth}}px; transform: translateX({{item.left}}px) translateY({{item.top}}px);' data-index="{{index}}" data-id="{{item.id}}" bindtap="godetail">
+            <view class='img-wrapper' hidden='{{!item.height}}' style='height: {{item.height}}px;'>
+                <image class='del' src='/icon/delete.png' wx:if="{{item.is_del}}" data-index="{{index}}" data-id="{{item.id}}" catchtap='delItem' ></image>
+                <image class='img' src='{{item.imgurl_360}}' lazy-load="{{true}}" style='height: {{item.height - 57}}px;'></image>
+                <view class='desc' wx:if="{{item.distance || item.desc != ''}}">{{item.desc}}</view>
+                <view class='time-collection'>
+                    <view class="time">{{item.release_from}}</view>
+                    <view class='collection' data-index="{{index}}" data-id='{{item.id}}' catchtap='dolike'>
+                        <text class='text'>{{item.points_number}}</text>
+                        <view class='icon-wrapper'>
+                            <image class='icon' mode='aspectFill' wx:if="{{item.is_like == 1}}" src='/icon/like.png'></image>
+                            <image class='icon' mode='aspectFill' wx:else src='/icon/like-default.png'></image>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- <block wx:if="{{isFloat && list.length == 0}}">
+    <view class='float-loading'>
+      <autoloading is-show="{{isloading}}"></autoloading>
+    </view>
+  </block> -->
+    <block wx:if="{{!noData && !isFloat}}">
+        <autoloading is-show="{{isloading}}"></autoloading>
+    </block>
+    <view style='padding-top: 100rpx;' wx:if="{{!isFloat}}">
+        <nomore no-more="{{noData}}"></nomore>
+    </view>
+    <view wx:if="{{list.length > 0}}">
+        <nodata no-more="{{noMore}}"></nodata>
+    </view>
+</view>

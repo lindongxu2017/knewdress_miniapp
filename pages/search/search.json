@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "list": "/template/list/list",
+    "blogger": "/template/blogger/blogger",
+    "autoloading": "/template/autoloading/autoloading",
+    "nodata": "/template/noData/noData",
+    "nomore": "/template/nomore/nomore",
+    "navigationBar": "/template/navigationBar/navigationBar"
+  }
+}

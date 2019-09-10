@@ -1,0 +1,209 @@
+<!--pages/detail/detail.wxml-->
+<navigationBar></navigationBar>
+
+<view class='placeholder-main'>
+    <view class='placeholder-page' hidden='{{showPlaceholder}}'>
+        <view class='image-area back-gray' style='height: {{windowWidth*info.img_height/info.img_width || windowHeight * 0.6}}px'></view>
+        <view class='time-source-area'>
+            <view class='back-gray'></view>
+            <view class='back-gray'></view>
+        </view>
+        <view class='desc-area'>
+            <view class='back-gray short'></view>
+            <view class='back-gray'></view>
+            <view class='back-gray short'></view>
+        </view>
+        <autoloading is-show="{{!showPlaceholder}}"></autoloading>
+    </view>
+    <view hidden="{{!showPlaceholder}}">
+
+        <view class='img-wrapper' style='height: {{windowWidth*info.img_height/info.img_width}}px'>
+            <image src='{{info.imgurl_720 || info.image_url}}' data-previewimgurl='{{info.imgurl || info.image_url}}' bindtap='previewImg'></image>
+
+            <view class='face-frame {{showFacePosition?"face-animation":"fade-animation"}} {{(ele.position.width_persents * windowWidth * 100) < 50 ? "small-animation":"" }}' wx:for="{{facelist}}" wx:key="{{order}}" wx:if="{{showFacePosition}}" wx:for-item="ele"
+                wx:for-index="order" style='top: {{ele.position.top_persents * 100 }}%; left: {{ele.position.left_persents * 100}}%; width: {{ele.position.width_persents * 100}}%; height: {{ele.position.height_persents * 100}}%' data-origin="{{info.imgurl}}"
+                data-index="{{order}}" catchtap='chooseFace'>
+                <image mode='aspectFit' class='{{showFacePosition?"oversideAnimation":""}}' style='top: 0; left: 0;' src='/icon/switch-face-frame.png'></image>
+
+            </view>
+
+            <view class='choose-icon-wrapper {{facelist.length > 0 ? "opacity" : ""}}' hidden="{{facelist.length == 0}}" catchtap='analysis'>
+                <view wx:if='{{!showFacePosition && showFaceTip && !hasMerge}}' class='face-tips'>我要试穿</view>
+                <view wx:if='{{showFacePosition && facelist.length == 1 && !hasMerge }}' class='face-tips other-tip'>点击人脸，上传角度相似的自拍，查看试穿效果</view>
+                <view wx:if='{{showFacePosition && facelist.length > 1 && hasMerge}}' class='face-tips other-tip'>识别到多个人物，选择其中一位，查看试穿效果</view>
+                <view wx:if='{{showFacePosition && facelist.length > 1 && !hasMerge}}' class='face-tips other-tip'>识别到多个人物，选择其中一位，上传角度相似的自拍，查看试穿效果</view>
+                <image mode='widthFix' hidden='{{showFacePosition}}' src='/icon/switch-face.png'></image>
+                <image mode='widthFix' hidden='{{!showFacePosition}}' src='/icon/switch-face-active.png'></image>
+                <view class='shop-icon-wrapper bottom-radius' catchtap='searchBlog'>
+                    <image mode='widthFix' src='/icon/shop.png' catchtap='searchBlog'></image>
+                </view>
+                <!-- <image mode='widthFix' src='/icon/blog-search.png' catchtap='searchBlog'></image> -->
+            </view>
+            <view class='choose-icon-wrapper' hidden='{{facelist.length > 0}}'>
+                <view class='shop-icon-wrapper radius' catchtap='searchBlog'>
+                    <!-- <image mode='widthFix' src='/icon/shop.png' catchtap='searchGoods'></image> -->
+                    <image mode='widthFix' src='/icon/shop.png'></image>
+                </view>
+                <!-- <image mode='widthFix' src='/icon/single-search.png' catchtap='searchBlog'></image> -->
+            </view>
+        </view>
+
+        <view class='goods-list' wx:if="{{goodslist.length > 0}}">
+            <view class='label'>
+                <view class='text'>购买图片中商品</view>
+            </view>
+            <view class='item' wx:for="{{goodslist}}" wx:key="{{index}}" data-id="{{item.id}}" bindtap='goShop'>
+                <image mode='aspectFill' src='{{item.photo_x}}'></image>
+            </view>
+        </view>
+
+        <view class='userinfo-wrapper'>
+            <view class='user-head' bindtap='goBloggerDetail'>
+                <image mode='aspectFill' src='{{info.user_info.headimgurl}}'></image>
+                <view class='user-name-source'>
+                    <view>{{info.user_info.username}}</view>
+                    <view class='source'>{{info.user_info.nickname}}</view>
+                </view>
+            </view>
+            <view bindtap='focusBlog' class='focus-btn {{info.is_focus === 0 ? "" : "active"}}'>
+                <image hidden='{{info.is_focus !== 0}}' src='/icon/plus.png'></image>
+                <text hidden='{{info.is_focus !== 0}}'>关注</text>
+                <text hidden='{{info.is_focus === 0}}'>取消关注</text>
+            </view>
+        </view>
+        <view class='attr'>
+            <view class='item' wx:if="{{info.user_info.height}}">{{info.user_info.height}}cm</view>
+            <view class='item' wx:if="{{info.user_info.weight}}">{{info.user_info.weight}}kg</view>
+            <view class='item' wx:if="{{info.user_info.age}}">{{info.user_info.age}}岁</view>
+            <view class='item' wx:if="{{info.user_info.city}}">{{info.user_info.city}}</view>
+        </view>
+        <view class='user-essay'>
+            <text>{{info.desc}}</text>
+        </view>
+        <view class='create-time'>
+            <view>{{info.release_from}}</view>
+        </view>
+
+        <view class='comment-wrapper' style="{{commentlist == undefined? 'display:none':'display:block'}}">
+            <view class='num' bindtap='goCommentPage'>
+                <text>评论 · {{commentlist.length}}</text>
+                <image mode='aspectFill' src='/icon/arrow-right.png'></image>
+            </view>
+            <view class='users' bindtap='goCommentPage'>
+                <view class='item' wx:for="{{commentlist}}" wx:key="{{index}}" wx:for-item="obj" hidden="{{index > 1}}">
+                    <view class='info'>
+                        <view>
+                            <image class='avatar' mode="aspectFill" src='{{obj.user_info.headimgurl}}'></image>
+                            <view class='name'>{{obj.user_info.nickname}}</view>
+                        </view>
+                        <view class='time'>{{obj.create_from}}</view>
+                    </view>
+                    <view class='comment-content-wrapper'>
+                        <view class='content'>{{obj.content}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class='add-comment' catchtap='inputFocus'>
+                <open-data class="avatar" type="userAvatarUrl"></open-data>
+                <text>添加评论...</text>
+            </view>
+        </view>
+    </view>
+</view>
+
+
+<!-- 底部操作 -->
+<view class='footer-wrapper' wx:if='{{!inputIsFocus && info}}'>
+    <view>
+        <view class='collection' catchtap='dolick'>
+            <view wx:if="{{info.is_like == undefined || info.is_like == 'undefined'}}">
+                <image mode='aspectFill' src='/icon/like-default.png'></image>
+            </view>
+            <view wx:else>
+                <image mode='aspectFill' wx:if="{{info.is_like == 1}}" src='/icon/like.png'></image>
+                <image mode='aspectFill' wx:if="{{info.is_like == 0}}" src='/icon/like-default.png'></image>
+            </view>
+            <text>点赞 {{info.points_number}}</text>
+        </view>
+    </view>
+    <view>
+        <view class='collection' catchtap='openFolder'>
+            <view wx:if="{{info.is_collect == undefined || info.is_collect == 'undefined'}}">
+                <image style='width: 24rpx; height: 30rpx' mode='widthFix' src='/icon/collection.png'></image>
+            </view>
+            <view wx:else>
+                <image style='width: 24rpx; height: 30rpx' mode='widthFix' wx:if="{{info.is_collect == 1}}" src='/icon/collected.png'></image>
+                <image style='width: 24rpx; height: 30rpx' mode='widthFix' wx:if="{{info.is_collect == 0}}" src='/icon/collection.png'></image>
+            </view>
+            <text>收藏 {{info.collect_number}}</text>
+        </view>
+    </view>
+    <view>
+        <view class='collection' bindtap='goCommentPage'>
+            <view>
+                <image mode='aspectFill' src='/icon/comment.png'></image>
+            </view>
+            <text>评论 {{commentlist.length}}</text>
+        </view>
+    </view>
+    <view>
+        <view class='collection' bindtap='showAction'>
+            <view>
+                <image mode='aspectFill' src='/icon/comment.png'></image>
+            </view>
+            <text>分享 {{info.share_number}}</text>
+        </view>
+    </view>
+    <!-- <button open-type="share">
+        <view class='collection'>
+            <view>
+                <image mode='aspectFill' src='/icon/share.png'></image>
+            </view>
+            <text>分享 {{info.share_number}}</text>
+        </view>
+    </button> -->
+</view>
+
+<view class='poster-wrapper' wx:if="{{poster && popup2}}">
+    <image src='{{poster}}' mode='widthFix'></image>
+</view>
+
+<van-popup show="{{ popup1 }}" overlay position="bottom" safe-area-inset-top close-on-click-overlay overlay-style="background-color: rgba(0,0,0,0.5);">
+    <view class='popup'>
+        <view class='popup-title'>分享至</view>
+        <view class='popup-list'>
+            <view class='popup-list-item'>
+                <image src='/icon/wx.png'></image>
+                <view>微信好友</view>
+                <button class='share-btn' open-type='share'></button>
+            </view>
+            <view class='popup-list-item' bindtap='createPoster'>
+                <image src='/icon/poster.png'></image>
+                <view>生成海报</view>
+            </view>
+        </view>
+        <view class='popup-cancel' bindtap='hideAction'>取消</view>
+    </view>
+</van-popup>
+
+<van-popup show="{{ popup2 }}" overlay position="bottom" safe-area-inset-top overlay-style="background-color: rgba(0,0,0,0);">
+    <view class='popup'>
+        <view class='popup-title'>分享至</view>
+        <view class='popup-list'>
+            <view class='popup-list-item'>
+                <image src='/icon/wx.png'></image>
+                <view>微信好友</view>
+                <button class='share-btn' open-type='share'></button>
+            </view>
+            <view class='popup-list-item' bindtap='savePoster'>
+                <image src='/icon/download_2.png'></image>
+                <view>保存到相册</view>
+            </view>
+        </view>
+        <view class='popup-cancel' bindtap='hideAction2'>取消</view>
+    </view>
+</van-popup>
+
+<view class='input-fixed-wrapper' wx:if="{{inputIsFocus}}">
+    <input class='text-input' cursor-spacing="10" value='{{inputValue}}' focus='{{inputIsFocus}}' confirm-type='send' bindblur="inputBlur" bindinput="inputPrint" bindconfirm="comment" placeholder='发表评论...' placeholder-style='color:#B3B3B3;'></input>
+</view>

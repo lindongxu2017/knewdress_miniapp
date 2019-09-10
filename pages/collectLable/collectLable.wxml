@@ -1,0 +1,3 @@
+<!--pages/collectLable/collectLable.wxml-->
+<navigationBar></navigationBar>
+<lable id="lable" selected-list="{{selectedlist}}" group-list="{{grouplist}}" is-collect="{{isCollect}}" blog-id="{{blog_id}}"></lable>

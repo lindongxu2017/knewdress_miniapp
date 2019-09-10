@@ -1,0 +1,35 @@
+/* pages/address_list/address_list.wxss */
+.van-radio {
+    margin-right: 20rpx;
+}
+.van-cell-text {
+    margin-right: 20rpx;
+    font-size: 32rpx;
+    line-height: 1;
+    vertical-align: middle;
+}
+.van-cell-text, .phone {
+    display: inline-block;
+    line-height: 1;
+    vertical-align: middle;
+}
+.custom-icon-del {
+    margin-left: 20rpx;
+}
+.add-btn {
+    position: fixed;
+    width: 100%;
+    line-height: 90rpx;
+    text-align: center;
+    font-size: 32rpx;
+    color: #fff;
+    background-color: #f44;
+    left: 0;
+    bottom: 0;
+}
+.tag-wrapper {
+    display: inline-block;
+    line-height: 1;
+    vertical-align: middle;
+    margin-left: 20rpx;
+}

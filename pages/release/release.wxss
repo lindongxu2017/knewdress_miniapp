@@ -1,0 +1,69 @@
+/* pages/release/release.wxss */
+.add-icon {
+    padding: 30rpx;
+}
+.add-icon image {
+    width: 300rpx;
+}
+.img-blog {
+    padding: 30rpx 20% 45rpx;
+    box-sizing: border-box;
+}
+.img-blog image {
+    width: 100%;
+    border-radius: 8rpx;
+}
+.input-area {
+    padding: 0 30rpx 40rpx;
+    height: 200rpx;
+}
+.input-area textarea {
+    width: 100%;
+    height: 100%;
+    font-size: 28rpx;
+    background-color: #F8F8F8;
+    padding: 25rpx;
+    box-sizing: border-box;
+}
+.cell-title {
+    padding: 30rpx;
+}
+.cell-title-content {
+    border-radius: 8rpx;
+    border: 1px solid #ccc;
+}
+.release-wrapper {
+    padding: 100rpx 30rpx;
+}
+.release-wrapper .btn {
+    background-color: #FFDB32;
+    border-radius: 27rpx;
+    line-height: 88rpx;
+    text-align: center;
+    font-size: 30rpx;
+    color: #474747;
+}
+
+.img-list {
+    padding: 0 20rpx 0 30rpx;
+    font-size: 0;
+}
+.img-item {
+    margin-right: 10rpx;
+    margin-bottom: 10rpx;
+    width: calc(33.33% - 10rpx);
+    display: inline-block;
+}
+.img-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+}
+.img-wrapper image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 8rpx;
+}

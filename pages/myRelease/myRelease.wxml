@@ -1,0 +1,10 @@
+<!--pages/myRelease/myRelease.wxml-->
+<navigationBar/>
+
+<view class='edit'>
+    <text bindtap='edit'>{{is_edit ? '完成' : '编辑'}}</text>
+</view>
+
+<block wx:if="{{postInfo}}">
+    <list id="list" bindnodata="nodata" edit-able info-list="{{postInfo}}"></list>
+</block>

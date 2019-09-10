@@ -1,0 +1,18 @@
+<!--pages/goods/goods.wxml-->
+<navigationBar nav-title="{{title}}" />
+<view class='list'>
+    <block wx:for="{{list}}" wx:key="{{index}}">
+        <view class='item'>
+            <goods item-info="{{item}}" />
+        </view>
+    </block>
+    <block wx:if="{{loading}}">
+        <loading/>
+    </block>
+    <block wx:if="{{noData}}">
+        <view class='no-data'>暂无数据...</view>
+    </block>
+    <block wx:if="{{noMore}}">
+        <nomore/>
+    </block>
+</view>

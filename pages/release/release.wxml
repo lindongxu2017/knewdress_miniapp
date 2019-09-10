@@ -1,0 +1,31 @@
+<!--pages/release/release.wxml-->
+<navigationBar/>
+<view wx:if="{{!imgUrl}}" class='add-icon'>
+    <image src='/icon/add-icon.png' mode='widthFix' bindtap='add'></image>
+</view>
+<view wx:else class='img-blog'>
+    <image src='{{imgUrl}}' mode='widthFix' bindtap='add'></image>
+</view>
+<view class='input-area'>
+    <textarea value='{{value}}' maxlength="-1" bindinput='input' placeholder='请输入...'></textarea>
+</view>
+<view class='choose-goods'>
+    <view class='cell-title'>
+        <van-cell custom-class="cell-title-content" title="选择关联商品" is-link border="{{false}}" bindtap="selectGoods" />
+    </view>
+</view>
+
+<view class='img-list'>
+    <view class='img-item' wx:for="{{goods_list}}" wx:key="{{index}}">
+        <view class='img-wrapper'>
+            <view class='check-wrapper' data-index="{{index}}" data-id="{{item.id}}" catchtap='delItem'>
+                <van-icon wx:if="{{item.check}}" custom-class="del" name="del"/>
+            </view>
+            <image mode='aspectFill' src='{{item.photo_x}}'></image>
+        </view>
+    </view>
+</view>
+
+<view class='release-wrapper'>
+    <view class='btn' bindtap='release'>发布</view>
+</view>

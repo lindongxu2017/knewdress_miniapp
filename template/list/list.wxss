@@ -1,0 +1,120 @@
+/* template/list/list.wxss */
+
+.list-wrapper {
+    position: relative;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.list-item {
+    position: absolute;
+    overflow: hidden;
+}
+
+.img-wrapper {
+    width: 100%;
+    font-size: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.img-wrapper .del {
+    position: absolute;
+    right: 2px;
+    top: 0;
+    width: 60rpx;
+    height: 60rpx;
+    border-radius: 50%;
+    box-shadow: -2px 2px 2px rgba(0,0,0,0.5);
+}
+
+.img-wrapper > .img {
+    width: 100%;
+    border-radius: 10rpx;
+    margin-bottom: 5px;
+    background-color: #efefef;
+    overflow: hidden;
+}
+
+.desc {
+    font-size: 14px;
+    color: #555;
+    display: -webkit-box;
+    word-break: keep-all;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-height: 16px;
+}
+
+.desc .distance {
+    font-size: 20rpx;
+    color: #fff;
+    background-color: #f1be5c;
+    padding: 0 12rpx;
+    border-radius: 60rpx;
+    will-change: transform;
+    margin-right: 10rpx;
+    line-height: 1;
+    overflow: hidden;
+}
+
+.desc .distance.green {
+    background-color: #43bc60;
+    overflow: hidden;
+}
+
+.desc .distance.red {
+    background-color: #e03b3b;
+    overflow: hidden;
+}
+
+.time-collection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 20px;
+    overflow: hidden;
+}
+
+.collection {
+    line-height: 20px;
+    padding-left: 10px;
+    overflow: hidden;
+}
+
+.collection .text, .collection .icon-wrapper {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 1;
+    overflow: hidden;
+}
+
+.time-collection .time {
+    font-size: 14px;
+    color: #85919c;
+    line-height: 1;
+    overflow: hidden;
+}
+
+.collection .text {
+    font-size: 26rpx;
+    color: #85919c;
+    margin-right: 10rpx;
+    overflow: hidden;
+}
+
+.collection .icon {
+    width: 14px;
+    height: 14px;
+    margin-top: 2px;
+    overflow: hidden;
+}
+
+.float-loading {
+    position: fixed;
+    width: 100%;
+    bottom: 10%;
+    overflow: hidden;
+}

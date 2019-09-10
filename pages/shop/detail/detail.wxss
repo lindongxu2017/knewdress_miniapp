@@ -1,0 +1,217 @@
+/* pages/detail/detail.wxss */
+@import "/wxParse/wxParse.wxss";
+page {
+    background-color: #f7f7f7;
+}
+.goods-info {
+    margin-bottom: 15rpx;
+}
+.rich-text-content {
+    padding-bottom: 100rpx;
+    position: relative;
+    z-index: 0;
+    overflow-x: hidden;
+}
+.goods-img image {
+    width: 100%;
+    display: block;
+}
+
+.goods-cell {
+    padding: 20rpx 30rpx;
+    background-color: #fff;
+    font-size: 0;
+}
+
+.goods-name {
+    font-size: 32rpx;
+    font-weight: bold;
+    margin-bottom: 10rpx;
+}
+
+.goods-intro {
+    font-size: 28rpx;
+    color: #666;
+    margin-bottom: 10rpx;
+}
+
+.goods-price-num {
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    -webkit-align-items: center;
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+    padding: 0 0 20rpx;
+}
+
+.goods-price {
+    color: #f44;
+    font-size: 28rpx;
+}
+
+.goods-num {
+    color: #666;
+    font-size: 28rpx;
+}
+
+.sku-wrapper {
+    position: relative;
+}
+
+.sku-wrapper .goods-num {
+    padding: 0 30rpx 40rpx;
+}
+
+.goods-card-title {
+    font-size: 32rpx;
+    height: auto;
+    overflow: hidden;
+}
+
+.goods-card-desc {
+    font-size: 28rpx;
+}
+
+.goods-card-price {
+    font-size: 28rpx;
+}
+
+.van-card {
+    background-color: #fff !important;
+}
+
+.van-card__content {
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    justify-content: space-around;
+    -webkit-justify-content: space-around;
+    padding-right: 30rpx;
+}
+
+.close-icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 10rpx;
+    z-index: 2;
+}
+
+.specs-list {
+    padding: 20rpx 30rpx;
+    font-size: 28rpx;
+}
+
+.specs-title {
+    margin-bottom: 10rpx;
+}
+
+.specs-span-wrapper {
+    padding: 0 30rpx;
+    height: 60rpx;
+    line-height: 60rpx;
+    text-align: center;
+    border: 1px solid #ddd;
+    display: inline-block;
+    vertical-align: middle;
+    border-radius: 6rpx;
+    margin: 0 20rpx 20rpx 0;
+}
+
+.specs-span-wrapper.active {
+    color: #fff;
+    background-color: #f44;
+    border-color: #f44;
+}
+
+.submit {
+    line-height: 90rpx;
+    text-align: center;
+    font-size: 32rpx;
+    background-color: #f44;
+    color: #fff;
+}
+
+.wxParse-img {
+    width: 100%!important;
+    display: block;
+}
+.wxParse-div, .wxParse-table {
+    width: 100%!important;
+    box-sizing: border-box;
+}
+
+.rich-text-content view {
+    background-color: #fff;
+}
+
+.van-card__img {
+    display: block;
+}
+
+.free {
+    color: #f44;
+    font-size: 28rpx;
+}
+
+.popup {
+    background-color: #D9D8D8;
+    color: #5A5A5A;
+}
+
+.popup-title {
+    padding: 20rpx 0;
+    text-align: center;
+    font-size: 28rpx;
+}
+.popup-cancel {
+    padding: 20rpx 0;
+    text-align: center;
+    font-size: 28rpx;
+    border-top: 1px solid #D0D0D0;
+}
+.popup-list {
+    padding-left: 30rpx;
+    padding-bottom: 20rpx;
+    box-sizing: border-box;
+}
+.popup-list-item {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    margin-right: 30rpx;
+    position: relative;
+}
+.popup-list-item image {
+    width: 90rpx;
+    height: 90rpx;
+}
+.popup-list-item view {
+    font-size: 24rpx;
+}
+.share-btn {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+
+.poster-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    width: 100%;
+    height: calc(100% - 310rpx);
+    padding-top: 180rpx;
+    box-sizing: border-box;
+}
+.poster-wrapper image {
+    width: 70%;
+    margin: 0 auto;
+    display: block;
+}

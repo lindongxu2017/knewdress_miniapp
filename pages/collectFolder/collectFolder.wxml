@@ -1,0 +1,34 @@
+<!--pages/colletFolder/colletFolder.wxml-->
+<navigationBar></navigationBar>
+
+<view class='check-list'>
+  <view class='check-item' wx:for="{{checklist}}" wx:key="{{index}}" data-index="{{index}}" bindtap='cancel'>{{item.cate_name}}</view>
+</view>
+
+<view class='select-list'>
+  <view class='folder-items' wx:for="{{folderlist}}" wx:key="{{index}}" data-index="{{index}}" catchtap='selectItems'>
+    <image hidden='{{item.ischeck}}' src='/icon/uncheck.png'></image>
+    <image hidden='{{!item.ischeck}}' src='/icon/check.png'></image>
+    <view class='folder-name'>
+      <text>{{item.cate_name}}</text>
+      <text class='num'>({{item.collect_number || 0}})</text>
+    </view>
+  </view>
+</view>
+
+<view class='nodata' wx:if="{{folderlist.length == 0}}">
+  <image mode='widthFix' src='/icon/no-photo.png'></image>
+  <view>暂无分组哦</view>
+</view>
+
+<autoloading is-show="{{loading}}"></autoloading>
+
+<view class='btn-group'>
+  <view class='create-folder-btn' bindtap='openNewFolder'>
+    <image src='/icon/plus.png'></image>
+    <text>新建分组</text>
+  </view>
+  <view class='save' bindtap='confirm'>保存</view>
+</view>
+
+<popupFolder bindformComfirm="callBackValue" popup-visible="{{openNewFolder}}"></popupFolder>

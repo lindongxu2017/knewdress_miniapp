@@ -1,0 +1,14 @@
+{
+  "usingComponents": {
+    "list": "/template/list/list",
+    "autoloading": "/template/autoloading/autoloading",
+    "nodata": "/template/noData/noData",
+    "nomore": "/template/nomore/nomore",
+    "navigationBar": "/template/navigationBar/navigationBar",
+    "waterfall": "/template/waterfall/waterfall",
+    "van-tab": "/miniprogram_npm/vant-weapp/tab/index",
+    "van-tabs": "/miniprogram_npm/vant-weapp/tabs/index"
+  },
+  "backgroundTextStyle": "dark",
+  "enablePullDownRefresh": true
+}

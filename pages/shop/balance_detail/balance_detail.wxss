@@ -1,0 +1,60 @@
+/* pages/balance_detail/balance_detail.wxss */
+
+.lable {
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    -webkit-align-items: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.lable > view {
+    flex: 1;
+    -webkit-flex: 1;
+    line-height: 90rpx;
+    font-size: 32rpx;
+    text-align: center;
+}
+
+.list {
+    font-size: 0;
+}
+
+.item {
+    display: flex;
+    display: -webkit-flex;
+    align-items: stretch;
+    -webkit-align-items: stretch;
+    border-bottom: 1px solid #ddd;
+    font-size: 28rpx;
+}
+
+.item > view {
+    flex: 1;
+    -webkit-flex: 1;
+    text-align: center;
+    color: #666;
+}
+
+.date {
+    margin: 20rpx 0 10rpx;
+    line-height: 1;
+}
+
+.time {
+    font-size: 24rpx;
+    color: #999;
+    line-height: 1;
+    margin-bottom: 20rpx;
+}
+
+.text {
+    line-height: 100rpx;
+}
+
+.no-datda {
+    text-align: center;
+    color: #999;
+    font-size: 28rpx;
+    margin-top: 300rpx;
+}

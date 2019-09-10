@@ -1,0 +1,230 @@
+/* pages/mall/index.wxss */
+@import '../imgSearch/imgSearch.wxss';
+.main-content-wrapper {
+    height: 100vw;
+}
+.positions {
+    position: absolute;
+    z-index: 2;
+}
+.positions.active {
+    z-index: 1;
+    border: 1000px solid rgba(0, 0, 0, 0.5);
+}
+.angle {
+    position: absolute;
+    width: 30rpx;
+    height: 30rpx;
+}
+.angle.lt {
+    left: -2px;
+    top: -2px;
+}
+.angle.rt {
+    right: -2px;
+    top: -2px;
+    transform: rotate(90deg);
+}
+.angle.rb {
+    right: -2px;
+    bottom: -2px;
+    transform: rotate(180deg);
+}
+.angle.lb {
+    left: -2px;
+    bottom: -2px;
+    transform: rotate(-90deg);
+}
+
+.cell-title {
+    padding: 0 30rpx;
+    font-size: 32rpx;
+    color: #333;
+    font-weight: bold;
+}
+.pointer-wrapper {
+    position: absolute;
+    overflow: hidden;
+}
+
+.goods-list {
+    padding: 30rpx 15rpx;
+    font-size: 0;
+}
+
+.goods-item {
+    padding: 0 15rpx;
+    display: inline-block;
+    width: 50%;
+    box-sizing: border-box;
+    margin-bottom: 30rpx;
+}
+.goods-img-wrapper {
+    padding-bottom: 100%;
+    position: relative;
+    margin-bottom: 10rpx;
+}
+.goods-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: block;
+    border-radius: 10rpx;
+}
+.goods-content .info .title {
+    font-size: 28rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp:2;
+    -webkit-box-orient: vertical;
+    color: #666;
+    margin-bottom: 10rpx;
+}
+.discount {
+    font-size: 20rpx;
+    padding: 5rpx 10rpx;
+    background-color: #df3033;
+    color: #fff;
+    border-radius: 4rpx;
+}
+.coupon-sales {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+    align-items: center;
+    -webkit-align-items: center;
+}
+.discount:empty {
+    opacity: 0;
+}
+.price-sales {
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    -webkit-align-items: center;
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+    margin-top: 7rpx;
+}
+.current {
+    color: #e4393c;
+    font-size: 32rpx;
+    margin-right: 10rpx;
+}
+.origin {
+    color: #999;
+    font-size: 24rpx;
+    text-decoration: line-through;
+}
+.sales {
+    font-size: 24rpx;
+    color: #666;
+}
+.goods-mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 3;
+}
+.goods-popup-content {
+    position: absolute;
+    width: 100%;
+    height: 70%;
+    background-color: #fff;
+    left: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    padding: 10rpx;
+}
+.slide-image {
+    width: 100%;
+    height: 100%;
+}
+.goods-swiper {
+    height: 65vw;
+}
+.indicator {
+    position: absolute;
+    right: 0;
+    top: 57vw;
+}
+.indicator {
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    font-size: 24rpx;
+    padding: 5rpx 10rpx 5rpx 20rpx;
+    border-bottom-left-radius: 30rpx;
+    border-top-left-radius: 30rpx;
+}
+.title.popup {
+    font-size: 32rpx!important;
+    color: #333!important;
+    margin-top: 20rpx;
+}
+.discount.popup {
+    font-size: 20rpx;
+    padding: 5rpx 10rpx;
+}
+.current.popup {
+    font-size: 42rpx;
+}
+.origin.popup {
+    font-size: 28rpx;
+}
+.sales.popup {
+    font-size: 28rpx;
+}
+.copy {
+    line-height: 80rpx;
+    background-color: #df3033;
+    margin: 0 30rpx;
+    border-radius: 8rpx;
+    text-align: center;
+    font-size: 32rpx;
+    color: #fff;
+    margin-top: 100rpx;
+}
+
+.point {
+    position: absolute;
+    width: 20rpx;
+    height: 20rpx;
+    background-color: #fff;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    margin-left: -10rpx;
+    margin-top: -10rpx;
+}
+.point.active, .point-line.active {
+    /* background-color: rgb(227, 245, 229); */
+}
+.icon-bag.active {
+    /* color: #fff; */
+}
+.point-line {
+    position: absolute;
+    width: calc(50% + 70rpx);
+    height: 2px;
+    background-color: #fff;
+    top: 50%;
+    margin-top: -1px;
+    text-align: right;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+.icon-bag {
+    position: absolute;
+    top: -8px;
+    font-size: 24rpx;
+    color: #fff;
+    display: inline-block;
+    white-space: nowrap;
+}

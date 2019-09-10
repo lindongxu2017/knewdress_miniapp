@@ -1,0 +1,114 @@
+/* template/shop/order/order.wxss */
+
+.order-content {
+    background-color: #fff;
+    margin-top: 15rpx;
+}
+
+.order-sn-status {
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    -webkit-align-items: center;
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+    padding: 20rpx 30rpx;
+    font-size: 28rpx;
+}
+
+.order-sn-status .status {
+    color: #f44;
+}
+
+.order-sn-status .status.finish {
+    color: #07c160;
+}
+
+.goods-list {
+    background-color: #fff;
+    padding: 0rpx 30rpx 30rpx;
+}
+
+.goods-list .item {
+    display: flex;
+    display: -webkit-flex;
+    align-items: stretch;
+    -webkit-align-items: stretch;
+    margin-bottom: 30rpx;
+}
+
+.goods-list .item:last-child {
+    margin-bottom: 0;
+}
+
+.item .image {
+    width: 150rpx;
+    height: 150rpx;
+    border-radius: 4rpx;
+}
+
+.item .info {
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    justify-content: space-around;
+    -webkit-justify-content: space-around;
+    flex: 1;
+    -webkit-flex: 1;
+    width: 0;
+    padding-left: 30rpx;
+}
+
+.item .info .title {
+    font-size: 28rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.item .info .attr {
+    font-size: 0;
+}
+
+.item .info .attr .text {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 24rpx;
+    color: #999;
+    margin-right: 20rpx;
+    line-height: 1;
+}
+
+.item .info .num {
+    font-size: 28rpx;
+    color: #999;
+    line-height: 1;
+}
+
+.price-num {
+    display: flex;
+    display: -webkit-flex;
+    align-items: center;
+    -webkit-align-items: center;
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+}
+
+.price-num .price {
+    color: #f44;
+}
+.status-operation {
+    padding: 0 30rpx 30rpx;
+    text-align: right;
+}
+.status-operation .btn {
+    width: 160rpx;
+    text-align: center;
+    line-height: 55rpx;
+    border: 1px solid #ddd;
+    border-radius: 55rpx;
+    font-size: 24rpx;
+    display: inline-block;
+    margin-left: 20rpx;
+}

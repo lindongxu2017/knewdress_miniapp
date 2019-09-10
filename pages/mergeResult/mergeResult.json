@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "试穿效果",
+  "disableScroll": true,
+  "usingComponents": {
+    "navigationBar": "/template/navigationBar/navigationBar"
+  }
+}

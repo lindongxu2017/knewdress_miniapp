@@ -1,0 +1,16 @@
+<!--pages/cash/cash.wxml-->
+<navigationBar nav-title="会员提现" />
+<view class='cell'>
+    <van-icon name="wechat" size='24px' color='#07C160' custom-style='margin-top:6px;' slot="icon"></van-icon>
+    <view class='title'>微信零钱</view>
+</view>
+
+<van-cell-group>
+    <van-field value="{{ value }}" icon="question-o" placeholder="请输入提现金额"  bind:click-icon="onClickIcon" bind:change="onChange" />
+</van-cell-group>
+
+<view class='tips'>可提现金额： ￥{{userinfo.money}}</view>
+
+<view class='btn'>
+    <van-button custom-class="cash-btn" bind:click="cash" type="primary">提现</van-button>
+</view>

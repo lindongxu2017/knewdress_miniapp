@@ -1,0 +1,10 @@
+/* pages/order/order.wxss */
+page {
+    background-color: #f7f7f7;
+}
+.no-data {
+    margin-top: 300rpx;
+    text-align: center;
+    font-size: 28rpx;
+    color: #999;
+}

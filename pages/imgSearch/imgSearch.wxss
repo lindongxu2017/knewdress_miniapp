@@ -1,0 +1,310 @@
+/* pages/imgSearch/imgSearch.wxss */
+page {
+  overflow-y: hidden;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+.main-wrapper {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+.main-content-wrapper {
+  background-color: #fff;
+  position: relative;
+  z-index: 0;
+}
+.main-slider-wrapper {
+  position: absolute;
+  width: 100%;
+  height: 120%;
+  padding-bottom: 22%;
+  background-color: #fff;
+  top: 0;
+  left: 0;
+  transform-origin: center center;
+  box-sizing: border-box;
+  padding-top: 50px;
+  z-index: 3;
+  border-top-left-radius: 25rpx;
+  border-top-right-radius: 25rpx;
+}
+.main-slider-wrapper.hide {
+  padding-top: 15px;
+  transition: all 0.3s ease;
+}
+scroll-view {
+  background-color: #fff;
+}
+.frame-wrapper {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.frame-item {
+  border: 2px solid transparent;
+  box-sizing: border-box;
+  position: absolute;
+}
+.movable-area {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+.movable-area > movable-view {
+  z-index: 2;
+}
+.movable-area > movable-view.moveView {
+  z-index: 1;
+  top: 15px;
+  left: 15px;
+}
+.mask-wrapper {
+  position: relative;
+}
+.mask-wrapper > view {
+  position: absolute;
+  width: 1000px;
+  height: 1000px;
+  background-color: rgba(59, 59, 59, 0.5);
+  top: 0;
+  left: 0;
+}
+.mask-wrapper > view:nth-child(1) {
+  transform: translateX(0) translateY(-1000px);
+}
+.mask-wrapper > view:nth-child(2) {
+  left: 100%;
+}
+.mask-wrapper > view:nth-child(3) {
+  top: 100%;
+  left: 100%;
+  transform: translateX(-1000px);
+}
+.mask-wrapper > view:nth-child(4) {
+  top: 100%;
+  transform: translateX(-1000px) translateY(-1000px);
+}
+textarea {
+  border: 1px solid #eee;
+}
+
+#wrapper > view {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1000px;
+  height: 1000px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+#wrapper > view.clip-area {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  box-sizing: border-box;
+  border-radius: 13rpx;
+  background-color: transparent;
+}
+
+.clip-btn {
+  position: absolute;
+  top: -13px;
+  left: -13px;
+  width: 100%;
+  height: 100%;
+  border-radius: 13rpx;
+  overflow: hidden;
+}
+
+.clip-area > view {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 0;
+  overflow: hidden;
+  border-radius: 13rpx;
+  transform: rotate(0);
+}
+
+.clip-area > view > view {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  right: -20px;
+  bottom: -20px;
+  background-color: #ffdb32;
+  border-radius: 50%;
+}
+
+.clip-area > view image {
+  width: 14px;
+  height: 14px;
+  margin: 5px 0 0 5px;
+}
+
+.clip-area > image {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  transform-origin: center center 0px;
+}
+.clip-area > image:nth-child(1) {
+  top: 0;
+  left: 0;
+  transform: translateX(-2px) translateY(-2px) translateZ(0);
+}
+.clip-area > image:nth-child(2) {
+  top: 0;
+  right: 0;
+  transform: translateX(2px) translateY(-2px) translateZ(0) rotate(90deg);
+}
+.clip-area > image:nth-child(3) {
+  bottom: 0;
+  right: 0;
+  transform: translateX(2px) translateY(2px) translateZ(0) rotate(180deg);
+}
+.clip-area > image:nth-child(4) {
+  bottom: 0;
+  left: 0;
+  transform: translateX(-2px) translateY(2px) translateZ(0) rotate(-90deg);
+}
+
+.headImg-wrapper {
+  position: absolute;
+  width: 130rpx;
+  height: 130rpx;
+  top: -40rpx;
+  left: 50%;
+  margin-left: -75rpx;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 3px solid #fff;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+.headImg-wrapper.hide {
+  opacity: 0;
+}
+
+.headImg-wrapper image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.mask {
+  position: absolute;
+  width: 1000px;
+  height: 1000px;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.touch-view {
+  position: absolute;
+  width: 100%;
+  height: calc(100% - 40px);
+  height: -webkit-calc(100% - 40px);
+  background-color: #fff;
+  will-change: transform, border-radius;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  border-top-left-radius: 30rpx;
+  border-top-right-radius: 30rpx;
+}
+
+.head-img-wrapper {
+  position: relative;
+  height: 80rpx;
+  opacity: 1;
+}
+.head-img-wrapper.hide {
+  height: 0;
+  opacity: 0;
+}
+.head-img-wrapper image {
+  width: 120rpx;
+  height: 120rpx;
+  border: 8rpx solid #fff;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  margin-left: -64rpx;
+  margin-top: -64rpx;
+  border-radius: 50%;
+}
+
+
+.show-view, .img  {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+.show-view {
+  z-index: 999;
+}
+.scan {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: -webkit-linear-gradient(transparent, rgba(27,58,87,0.5)); /* Safari 5.1 - 6.0 */
+  background: linear-gradient(transparent, rgba(27,58,87,0.5)); /* 标准的语法（必须放在最后） */
+  transform-origin: center center 0;
+  animation: scan 5s infinite;
+  -webkit-animation: scan 2s linear infinite; /* Safari 和 Chrome */
+  z-index: 2;
+}
+
+@keyframes scan {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.img-wrapper {
+  font-size: 0;
+  background-color: greenyellow;
+}
+.img-wrapper image {
+  width: 100%;
+}
+movable-area {
+  width: 100%;
+  height: 30%;
+  z-index: 2;
+}
+movable-view {
+  width: 100%;
+  height: 50%;
+}
+.scroll-wrapper {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  border-top-right-radius: 20rpx;
+  border-top-left-radius: 20rpx;
+  transition: all 0.2s ease;
+}
+.mid-mask {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}

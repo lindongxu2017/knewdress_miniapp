@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "navigationBar": "/template/navigationBar/navigationBar",
+        "van-icon": "/miniprogram_npm/vant-weapp/icon/index"
+    }
+}

@@ -1,0 +1,108 @@
+<!--template/lable/lable.wxml-->
+
+<view class='img-wrapper' wx:if="{{uploadList.length}}" bindtouchstart='hiddenOperation'>
+    <view class='img-item' wx:for="{{uploadList}}" wx:key="{{index}}">
+        <view class='img'>
+            <image class='src' src='{{item}}' mode='aspectFill' data-url="{{item}}" bindtap='preViewImage'></image>
+            <image class='del' wx:if="{{!clothId}}" src='/icon/delete-icon.png' mode='aspectFill' data-index="{{index}}" bindtap='delImage'></image>
+        </view>
+    </view>
+</view>
+
+<view class='selected-wrapper' bindtouchstart='hiddenOperation'>
+    <view class='lable-title'>
+        <view class='text'>已选择标签</view>
+        <!-- <view class='collapse'>展开</view> -->
+    </view>
+    <view class='content-wrapper'>
+        <view class='no-data' wx:if="{{selectedList.length == 0}}">未选择</view>
+        <block wx:else>
+            <view class='item' wx:for="{{selectedList}}" wx:key="{{index}}" data-item='{{item}}' data-index="{{index}}" bindtap='reselect'>{{item.cate_name || item.name}}</view>
+        </block>
+    </view>
+</view>
+
+<view class='group-wrapper' style='height: {{contentH}}px' bindtouchstart='hiddenOperation'>
+    <view class='group-item' style='position: {{contentH?"absolute":"static"}}; top: 0; left: 15px; width: {{itemWidth ? itemWidth : ""}}px;'>
+        <image class='add-icon {{groupList.length == 0 ? "pad" : ""}}' bindload='getlayoutdata' bindtap='addLable' mode='widthFix' src='/icon/add-icon.png'></image>
+    </view>
+    <view class='group-item' wx:for="{{groupList}}" wx:key="{{index}}" style='position: {{contentH?"absolute":"static"}}; transform: translate( {{item.layout.left}}px, {{item.layout.top}}px); width: {{itemWidth ? itemWidth : ""}}px;'>
+        <view class='lable-title' style='background-color: rgba({{item.color}}, 0.1);'>
+            <view class='text'>{{item.name}}</view>
+            <!-- <view class='collapse'>展开</view> -->
+        </view>
+        <view class='content-wrapper' style='background-color: rgba({{item.color}}, 0.1);'>
+            <image data-index="{{index}}" bindtap='createlable' class='create' src='/icon/create.png' mode='widthFix'></image>
+            <view class='item clip {{obj.active ? "active" : ""}}' data-index='{{index}}' data-order="{{order}}" bindtouchstart="mytouchstart" bindtouchend="mytouchend" bindlongtap='showOperation' bindtap='selectlabel' wx:for="{{item.list}}" wx:key="{{order}}" wx:for-item="obj"
+                wx:for-index="order">
+                <text>{{obj.name}}</text>
+                <view class='operation-wrapper' hidden='{{obj.operationVisible}}'>
+                    <view class='edit' data-index='{{index}}' data-order="{{order}}" catchtap='editLable'>编辑</view>
+                    <view class='del' data-index='{{index}}' data-order="{{order}}" catchtap='delLable'>删除</view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+
+<view class='mask' catchtouchmove='{{false}}' hidden='{{!addVisible}}'>
+    <view class='main-content'>
+        <view class='title'>新建分组</view>
+        <view class='content'>
+            <input class='input' value='{{addValue}}' bindinput='addInput' placeholder-style='color: #B5B7B9;' placeholder='例如：上装'>
+            </input>
+        </view>
+        <view class='operation'>
+            <view class='cancle' bindtap='cancleAdd'>取消</view>
+            <view class='confirm' bindtap='confirmAdd'>保存</view>
+        </view>
+    </view>
+</view>
+
+<!-- 新建标签 -->
+<view class='mask' catchtouchmove='{{false}}' hidden='{{!createVisible}}'>
+    <view class='main-content'>
+        <view class='title'>新建标签</view>
+        <view class='content'>
+            <view class='select'>
+                <picker class='picker-wrapper' bindchange="bindPickerChange" value="{{createIndex}}" range="{{groupList}}" range-key='name'>
+                    <view class="picker">{{groupList[createIndex].name}}</view>
+                </picker>
+                <image class='icon' src='/icon/down.png' mode="widthFix"></image>
+            </view>
+            <input class='input' value='{{createValue}}' bindinput='createInput' placeholder-style='color: #B5B7B9;' placeholder='标签名称（1-5个字）'>
+            </input>
+        </view>
+        <view class='operation'>
+            <view class='cancle' bindtap='cancle'>取消</view>
+            <view class='confirm' bindtap='confirm'>保存</view>
+        </view>
+    </view>
+</view>
+
+<!-- 编辑标签 -->
+<view class='mask' catchtouchmove='{{false}}' hidden='{{!editVisible}}'>
+    <view class='main-content'>
+        <view class='title'>编辑标签</view>
+        <view class='content'>
+            <view class='select'>
+                <picker class='picker-wrapper' bindchange="editChange" value="{{editSelectCurrent}}" range="{{groupList}}" range-key='name'>
+                    <view class="picker">{{groupList[editSelectCurrent].name}}</view>
+                </picker>
+                <image class='icon' src='/icon/down.png' mode="widthFix"></image>
+            </view>
+            <input class='input' value='{{editValue}}' bindinput='editInput' placeholder-style='color: #B5B7B9;' placeholder='标签名称（1-5个字）'>
+            </input>
+        </view>
+        <view class='operation'>
+            <view class='cancle' bindtap='cancleEdit'>取消</view>
+            <view class='confirm' bindtap='confirmEdit'>保存</view>
+        </view>
+    </view>
+</view>
+
+<view class='footer'>
+    <!-- <view class='cancel' bindtap='chooseImage' wx:if="{{!clothId}}">上传图片</view> -->
+    <view class='cancel' bindtap='cancelAddImage'>取消</view>
+    <view class='confirm' bindtap='confirmUpload'>确定{{imglist.length > 0 ? '（'+imglist.length+'）' : ''}}</view>
+</view>

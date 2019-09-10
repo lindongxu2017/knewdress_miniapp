@@ -1,0 +1,26 @@
+/* pages/upload/index.wxss */
+page {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: center;
+    -webkit-justify-content: center;
+    align-items: center;
+    -webkit-align-items: center;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+}
+.img-wrapper {
+    width: 30%;
+    margin: -40% auto 0;
+}
+.img-wrapper image {
+    width: 100%;
+    height: 60vw;
+}
+.tips {
+    font-size: 32rpx;
+    margin-top: 30rpx;
+    color: #474747;
+}

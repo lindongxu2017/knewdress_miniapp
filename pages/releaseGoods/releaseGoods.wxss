@@ -1,0 +1,121 @@
+/* pages/releaseGoods/releaseGoods.wxss */
+.cell-title {
+    font-size: 30rpx;
+    color: #474747;
+    padding: 20rpx 30rpx 40rpx;
+    font-weight: bold;
+}
+.release-wrapper {
+    padding: 0 30rpx;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 50px;
+    box-sizing: border-box;
+    z-index: 3;
+}
+.release-wrapper .btn {
+    background-color: #FFDB32;
+    border-radius: 27rpx;
+    line-height: 88rpx;
+    text-align: center;
+    font-size: 30rpx;
+    color: #474747;
+}
+.img-list {
+    padding: 0 20rpx 0 30rpx;
+    font-size: 0;
+}
+.img-item {
+    margin-right: 10rpx;
+    margin-bottom: 10rpx;
+    width: calc(33.33% - 10rpx);
+    display: inline-block;
+}
+.img-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+}
+.img-wrapper image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    border-radius: 8rpx;
+    background-color: #f7f7f7;
+}
+.up-cate {
+    font-size: 0;
+    padding: 0 20rpx;
+    white-space: nowrap;
+    box-sizing: border-box;
+    border-top: 1px solid #ccc;
+}
+.up-cate .item {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 77rpx;
+    padding: 0 30rpx;
+    font-size: 28rpx;
+    box-sizing: border-box;
+}
+.up-cate .item.active {
+    position: relative;
+}
+.up-cate .item.active:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: #474747;
+    left: 0;
+    bottom: 0;
+    border-radius: 3px;
+}
+.down-cate {
+    font-size: 0;
+    padding: 0 20rpx;
+    white-space: nowrap;
+    box-sizing: border-box;
+    background-color: #F0F3F7;
+    line-height: 77rpx;
+}
+.down-cate .item {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 50rpx;
+    padding: 0 30rpx;
+    font-size: 24rpx;
+    box-sizing: border-box;
+    border-radius: 50rpx;
+    background-color: #fff;
+    margin-right: 20rpx;
+}
+.down-cate .item.active {
+    color: #fff;
+    background-color: #ccc;
+}
+.down-cate .item:last-child {
+    margin-right: 0;
+}
+.screen-list {
+    padding: 30rpx 20rpx 125px 20rpx;
+    font-size: 0;
+}
+.check-wrapper {
+    position: absolute;
+    width: 44rpx;
+    height: 44rpx;
+    right: 20rpx;
+    bottom: 20rpx;
+    box-sizing: border-box;
+    border: 1px solid #474747;
+    z-index: 2;
+    border-radius: 8rpx;
+    background-color: #fff;
+    font-size: 32rpx;
+    text-align: center;
+    line-height: 44rpx;
+}

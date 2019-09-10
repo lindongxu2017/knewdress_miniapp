@@ -1,0 +1,26 @@
+<!--pages/searchSuit/searchSuit.wxml-->
+<!-- camera.wxml -->
+<navigationBar></navigationBar>
+<view style='height: {{windowHeight - navbarHeight}}px;' class="camera-wrapper">
+  <block wx:if="{{windowHeight}}">
+    <camera device-position="back" flash="off" binderror="error" device-position="{{devicePosition}}" hidden='{{imgUrl}}'>
+      <cover-view class="controls">
+        <cover-view class='album' bindtap="openAlbum">
+          <cover-image src='/icon/camera-select.png'></cover-image>
+        </cover-view>
+        <cover-view class='btn' bindtap="takePhoto">
+          <cover-image src='/icon/Photograph.png'></cover-image>
+        </cover-view>
+        <cover-view class='reverse' bindtap="reverseCamera">
+          <cover-image src='/icon/reverse.png'></cover-image>
+        </cover-view>
+      </cover-view>
+    </camera>
+  </block>
+</view>
+
+<view class='show-view' hidden='{{!imgUrl}}'>
+  <view class='scan'></view>
+  <image class='img' mode='aspectFill' src='{{imgUrl}}'></image>
+</view>
+

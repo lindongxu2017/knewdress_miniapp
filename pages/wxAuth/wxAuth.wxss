@@ -1,0 +1,27 @@
+.auth{
+	padding: 0 40rpx;
+}
+.auth image{
+	width:170rpx;
+	height: 170rpx;
+	margin:110rpx auto;
+	display: block;
+}
+.auth .txt{
+	text-align: center;
+	line-height: 24rpx;
+	height: 24rpx;
+	font-size:24rpx;
+	margin-bottom:50rpx;
+	color:#aaa;
+}
+.auth button{
+	height: 80rpx;
+	color:white;
+	font-size:30rpx;
+	background-color: #48C11E;
+	line-height: 80rpx;
+}
+.auth button::after{
+	display: none;
+}

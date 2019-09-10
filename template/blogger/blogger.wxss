@@ -1,0 +1,94 @@
+/* template/blogger/blogger.wxss */
+.blogger-wrapper {
+  padding-top: 30rpx;
+  text-align: left;
+}
+.header-wrapper {
+  padding: 0 30rpx;
+}
+.header-wrapper, .head-content-wrapper {
+  display: flex;
+  -webkit-display: flex;
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  align-items: center;
+  -webkit-align-items: center;
+}
+.head-content-wrapper image {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+}
+.name-sourse {
+  padding: 0 20rpx;
+  flex: 1;
+}
+.name-sourse .name {
+  font-size: 30rpx;
+  color: #555;
+}
+.name-sourse .sourse {
+  font-size: 26rpx;
+  color: #85919C;
+}
+.name-sourse .name view,
+.name-sourse .sourse view {
+    display: inline-block;
+}
+.name-sourse .sourse .search-text {
+    color: #333;
+    font-weight: bold;
+}
+.name-sourse .name .search-text {
+    color: #333;
+    font-weight: bold;
+}
+.sourse .current {
+    color: #333;
+    font-weight: bold;
+}
+.focus-btn {
+  font-size: 24rpx;
+  color: #474747;
+  line-height: 55rpx;
+  text-align: center;
+  border-radius: 55rpx;
+  width: 160rpx;
+  background-color: #FFDB32;
+}
+.focus-btn > text {
+  vertical-align: middle;
+}
+.focus-btn > image {
+  width: 30rpx;
+  height: 30rpx;
+  vertical-align: middle;
+  margin-right: 5rpx;
+}
+.focus-btn.focus {
+  color: #B2B2B2;
+  background-color: #F4F4F4;
+}
+.list-wrapper {
+  padding: 30rpx 25rpx 20rpx;
+  display: flex;
+  display: -webkit-flex;
+}
+.list-wrapper image {
+  flex: 1;
+  -webkit-flex: 1;
+  margin: 0 5rpx;
+  width: calc(25vw - 22.5rpx);
+  height: -webkit-calc(25vw - 22.5rpx);
+  max-width: 25vw;
+  border-radius: 10rpx;
+  background-color: #efefef;
+}
+
+.comple-item {
+  color: #B3B3B3;
+  font-weight: 600;
+}
+.comple-item .current {
+  color: #555;
+}

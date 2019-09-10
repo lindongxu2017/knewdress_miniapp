@@ -1,0 +1,31 @@
+/* template/loading/loading.wxss */
+.load-wrapper {
+  position: relative;
+  height: 102px;
+}
+.loading {
+    position: absolute;
+    width: 10%;
+    left: 45%;
+    text-align: center;
+    height: 102px;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding-top: 36px;
+}
+.load-icon {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    font-size: 0;
+    animation: rotateBounce 2s infinite linear;
+    transform-origin: center center;
+}
+.load-icon .load-img {
+    width: 100%;
+    height: 100%;
+}
+@keyframes rotateBounce {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

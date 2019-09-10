@@ -1,0 +1,15 @@
+<!--template/waterfall/waterfall.wxml-->
+<view class='list' style='height: {{showHeight}}px'>
+  <view class='list-item' wx:for="{{list}}" wx:key="{{index}}">
+    <view class='img'></view>
+    <view class='desc'></view>
+    <view class='desc short'></view>
+    <view class='time-support-wrapper'>
+      <view class='time'></view>
+      <view class='support'>
+        <view></view>
+        <view></view>
+      </view>
+    </view>
+  </view>
+</view>

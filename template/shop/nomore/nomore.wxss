@@ -1,0 +1,6 @@
+/* template/nomore/nomore.wxss */
+.no-more {
+    color: #999;
+    font-size: 28rpx;
+    text-align: center;
+}

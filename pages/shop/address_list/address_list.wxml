@@ -1,0 +1,20 @@
+<!--pages/address_list/address_list.wxml-->
+<navigationBar nav-title="地址管理" />
+
+<van-cell-group>
+    <block wx:for="{{list}}" wx:key="{{index}}">
+        <van-cell center label="{{item.address_xq + item.address}}" value-class="value-class" data-item="{{item}}" clickable bind:click="onClick">
+            <view slot="title">
+                <view class="van-cell-text">{{item.name}}</view>
+                <view class='phone'>{{item.tel}}</view>
+                <view wx:if="{{item.is_default == 1}}" class='tag-wrapper'>
+                    <van-tag>默认</van-tag>
+                </view>
+            </view>
+            <van-icon slot="right-icon" size="18px" name="edit" class="custom-icon" data-type="1" data-index="{{index}}" data-id="{{item.id}}" catchtap='addressChange' />
+            <van-icon slot="right-icon" size="18px" name="delete" class="custom-icon-del" data-index="{{index}}" data-id="{{item.id}}" catchtap='addressdel' />
+        </van-cell>
+    </block>
+</van-cell-group>
+
+<view class='add-btn' data-type="2" bindtap='addressChange'>新增地址</view>

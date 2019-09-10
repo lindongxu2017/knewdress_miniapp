@@ -1,0 +1,14 @@
+<!--template/navigationBar/navigationBar.wxml-->
+<view class='navigationBar' style='padding-top: {{statusBarHeight}}px'>
+  <view class='pageBack {{showBackIcon ? "" : "single"}}' style='top: {{statusBarHeight + 6}}px' wx:if='{{showAllIcon}}'>
+    <view class='view' bindtap='goback' wx:if='{{showBackIcon}}'>
+      <image class='bar-icon back' src='/icon/page-back.png' ></image>
+    </view>
+    <view class='view' bindtap='gohome'>
+      <image class='bar-icon home' src='/icon/page-home.png'></image>
+    </view>
+  </view>
+  <view class='pageTitle'>{{navTitle ? navTitle : "亲爱搭配"}}</view>
+</view>
+
+<view style='padding-top: {{statusBarHeight + 45}}px'></view>

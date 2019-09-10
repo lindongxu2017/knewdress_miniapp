@@ -1,0 +1,170 @@
+/**index.wxss**/
+
+page {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+}
+
+.van-tabs__wrap {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.guide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+.guide image {
+    width: 100%;
+    height: 100%;
+}
+
+.guide .ok {
+    position: absolute;
+    width: 22.88%;
+    height: 6%;
+    left: 35.56%;
+}
+
+.guide .uplaod-area {
+    position: absolute;
+    width: 12.2%;
+    height: 12.2vw;
+    border-radius: 50%;
+    will-change: transform;
+    right: 4%;
+    top: 0;
+}
+
+.infoType-wrapper {
+    text-align: center;
+    padding: 15px 0;
+    position: relative;
+    font-size: 0;
+}
+
+.infoType-wrapper .type-item {
+    display: inline-block;
+    font-size: 15px;
+    line-height: 16px;
+    color: #85919c;
+    margin: 0 35rpx;
+}
+
+.infoType-wrapper .type-item.active {
+    color: #555;
+    position: relative;
+    font-size: 16px;
+}
+
+.infoType-wrapper .type-item.active::before {
+    content: "";
+    position: absolute;
+    width: 40rpx;
+    height: 6rpx;
+    border-radius: 6rpx;
+    background-color: #ffdb32;
+    left: 50%;
+    margin-left: -15rpx;
+    bottom: -15px;
+}
+
+.infoType-wrapper > image {
+    width: 30rpx;
+    height: 30rpx;
+    position: absolute;
+    right: 25rpx;
+    top: 10rpx;
+    padding: 20rpx;
+}
+.infoType-wrapper-icon {
+  width: 30rpx;
+    height: 30rpx;
+    position: absolute;
+    right: 25rpx;
+    padding: 20rpx;
+    z-index: 2;
+}
+
+.tip-popup {
+    position: absolute;
+    right: 20rpx;
+    top: 70rpx;
+    z-index: 3;
+    font-size: 0;
+}
+
+.tip-popup image {
+    width: 290rpx;
+    height: 68rpx;
+}
+
+.tip-popup view {
+    position: absolute;
+    font-size: 26rpx;
+    color: #474747;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    line-height: 76rpx;
+    text-align: center;
+}
+
+.swiper-tab-wrapper {
+    flex: 1;
+    -webkit-flex: 1;
+}
+
+.swiper-tab-wrapper swiper {
+    height: 100%;
+}
+
+.uplaod-tips {
+    padding: 0 30rpx;
+    background-color: #f3f3f3;
+}
+
+.uplaod-tips > view {
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+    align-items: center;
+    -webkit-align-items: center;
+    padding: 17rpx 0;
+    border-radius: 13rpx;
+    padding-right: 15rpx;
+}
+
+.uplaod-tips > view text {
+    font-size: 26rpx;
+    color: #474747;
+}
+
+.close-wrapper .upload-tips-btn {
+    line-height: 50rpx;
+    padding: 0 22rpx;
+    border-radius: 5rpx;
+    border: 1px solid #b5b5b5;
+    color: #474747;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.close-wrapper image {
+    width: 30rpx;
+    height: 30rpx;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 25rpx;
+}

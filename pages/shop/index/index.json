@@ -1,0 +1,13 @@
+{
+    "usingComponents": {
+        "navigationBar": "/template/navigationBar/navigationBar",
+        "van-tab": "/miniprogram_npm/vant-weapp/tab/index",
+        "van-icon": "/miniprogram_npm/vant-weapp/icon/index",
+        "van-tabs": "/miniprogram_npm/vant-weapp/tabs/index",
+        "goods": "/template/shop/goods/goods",
+        "nomore": "../../../template/shop/nomore/nomore",
+        "loading": "../../../template/shop/loading/loading",
+        "classify": "/template/shop/classify/classify"
+    },
+    "enablePullDownRefresh": true
+}

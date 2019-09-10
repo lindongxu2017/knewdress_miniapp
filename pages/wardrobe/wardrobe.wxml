@@ -1,0 +1,3 @@
+<!--pages/wardrobe/wardrobe.wxml-->
+<navigationBar></navigationBar>
+<lable selected-list="{{selectedlist}}" upload-list="{{imglist}}" cloth-id="{{id}}" cloth-url="{{url}}" group-list="{{grouplist}}"></lable>

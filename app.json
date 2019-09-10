@@ -1,0 +1,83 @@
+{
+    "pages": [
+        "pages/upload/index",
+        "pages/index/index",
+        "pages/center/center",
+        "pages/detail/detail",
+        "pages/release/release",
+        "pages/releaseGoods/releaseGoods",
+        "pages/wardrobeSimilar/wardrobeSimilar",
+        "pages/collectLable/collectLable",
+        "pages/blogger/blogger",
+        "pages/bloggerDetail/bloggerDetail",
+        "pages/imgSearch/imgSearch",
+        "pages/imgSearch_2/index",
+        "pages/collectFolder/collectFolder",
+        "pages/setFavorite/setFavorite",
+        "pages/search/search",
+        "pages/wxAuth/wxAuth",
+        "pages/commentPage/commentPage",
+        "pages/searchSuit/searchSuit",
+        "pages/mergeResult/mergeResult",
+        "pages/wardrobe/wardrobe",
+        "pages/shop/order/order",
+        "pages/shop/index/index",
+        "pages/shop/address_operation/address_operation",
+        "pages/shop/address_list/address_list",
+        "pages/shop/pay/pay",
+        "pages/shop/detail/detail",
+        "pages/myCollect/myCollect",
+        "pages/myPhoto/myPhoto",
+        "pages/myClothes/myClothes",
+        "pages/myRelease/myRelease",
+        "pages/article/article",
+        "pages/mall/index",
+        "pages/infomation/infomation"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "亲爱搭配",
+        "navigationBarTextStyle": "black",
+        "navigationStyle": "custom"
+    },
+    "tabBar": {
+        "color": "#ACABB1",
+        "selectedColor": "#474747",
+        "backgroundColor": "#fff",
+        "borderStyle": "black",
+        "list": [
+            {
+                "pagePath": "pages/upload/index",
+                "text": "搜索",
+                "iconPath": "./icon/search_default.png",
+                "selectedIconPath": "./icon/search_active.png"
+            },
+            {
+                "pagePath": "pages/index/index",
+                "text": "搭配",
+                "iconPath": "./icon/home-default.png",
+                "selectedIconPath": "./icon/home.png"
+            },
+            {
+                "pagePath": "pages/release/release",
+                "text": "发布",
+                "iconPath": "./icon/release-default.png",
+                "selectedIconPath": "./icon/release.png"
+            },
+            {
+                "pagePath": "pages/blogger/blogger",
+                "text": "博主",
+                "iconPath": "./icon/test-default.png",
+                "selectedIconPath": "./icon/test.png"
+            },
+            {
+                "pagePath": "pages/center/center",
+                "text": "我的",
+                "iconPath": "./icon/center-default.png",
+                "selectedIconPath": "./icon/center.png"
+            }
+        ]
+    },
+    "sitemapLocation": "sitemap.json"
+}

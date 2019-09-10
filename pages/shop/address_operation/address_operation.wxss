@@ -1,0 +1,4 @@
+/* pages/address_operation/address_operation.wxss */
+.submit {
+    padding: 100rpx 30rpx 0;
+}

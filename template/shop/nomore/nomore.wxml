@@ -1,0 +1,2 @@
+<!--template/nomore/nomore.wxml-->
+ <view class='no-more'>没有更多了...</view>

@@ -1,0 +1,6 @@
+<!--template/loading/loading.wxml-->
+<view class='load-wrapper'>
+    <view class="load-icon">
+        <image class='load-img' src="/icon/loading.png"></image>
+    </view>
+</view>

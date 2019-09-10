@@ -1,0 +1,39 @@
+<!--pages/order/order.wxml-->
+<navigationBar nav-title="我的订单" />
+
+<van-tabs active="{{ active }}" swipeable sticky swipe-threshold="5" color="#ffdb32" border="{{false}}" bind:change="tabChange">
+    <van-tab title="全部订单">
+        <block wx:for="{{list_all}}" wx:key="{{index}}">
+            <order info-item="{{item}}" item-index="{{index}}" binddel="del"></order>
+        </block>
+        <view wx:if="{{list_all.length == 0}}" class='no-data'>暂无数据...</view>
+    </van-tab>
+
+    <van-tab title="待付款">
+        <block wx:for="{{list_topay}}" wx:key="{{index}}">
+            <order info-item="{{item}}" item-index="{{index}}" binddel="del"></order>
+        </block>
+        <view wx:if="{{list_topay.length == 0}}" class='no-data'>暂无数据...</view>
+    </van-tab>
+
+    <van-tab title="待发货">
+        <block wx:for="{{list_tosend}}" wx:key="{{index}}">
+            <order info-item="{{item}}" item-index="{{index}}" binddel="del"></order>
+        </block>
+        <view wx:if="{{list_tosend.length == 0}}" class='no-data'>暂无数据...</view>
+    </van-tab>
+
+    <van-tab title="待收货">
+        <block wx:for="{{list_toreceive}}" wx:key="{{index}}">
+            <order info-item="{{item}}" item-index="{{index}}" binddel="del"></order>
+        </block>
+        <view wx:if="{{list_toreceive.length == 0}}" class='no-data'>暂无数据...</view>
+    </van-tab>
+
+    <van-tab title="已完成">
+        <block wx:for="{{list_finish}}" wx:key="{{index}}">
+            <order info-item="{{item}}" item-index="{{index}}" binddel="del"></order>
+        </block>
+        <view wx:if="{{list_finish.length == 0}}" class='no-data'>暂无数据...</view>
+    </van-tab>
+</van-tabs>

@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "autoloading": "/template/autoloading/autoloading",
+    "nodata": "/template/noData/noData",
+    "nomore": "/template/nomore/nomore"
+  }
+}

@@ -1,0 +1,92 @@
+<!--pages/mall/index.wxml-->
+<navigationBar/>
+
+<view class="main-wrapper">
+    <view class='main-content-wrapper'>
+        <image src='{{showUrl}}' bindload='imgonload' mode='aspectFit' style='width: 100%; height: 100%'></image>
+        <view class='pointer-wrapper' style='width: {{img_w >= img_h ? windowWidth : img_w * windowWidth / img_h}}px; height: {{img_w >= img_h ? img_h * windowWidth / img_w : windowWidth}}px; left: {{img_w >= img_h ? 0 : (windowWidth - img_w * windowWidth / img_h) / 2}}px; top: {{img_w >= img_h ? (windowWidth - img_h * windowWidth / img_w) / 2 : 0}}px'>
+            <view class='positions {{default_current == index ? "active" : ""}}' wx:for="{{positions}}" wx:key="{{index}}" data-index="{{index}}" catchtap='selectgoods' style='min-height: 50px; min-width: 50px; width: {{(item[3] - item[1]) * 100}}%; height: {{(item[2] - item[0]) * 100}}%; left: {{item[1] * 100}}%; top: {{item[0] * 100}}%; transform: translate({{ default_current == index ? "-1000px,-1000px" : "0,0"}});margin: {{(item[3] - item[1])*windowWidth >= 50 || (item[2] - item[0]) * windowWidth >= 50 ? 0 : "-10px"}}'>
+
+                <image wx:if="{{default_current == index}}" class='angle lt' src='/icon/single.png'></image>
+                <image wx:if="{{default_current == index}}" class='angle rt' src='/icon/single.png'></image>
+                <image wx:if="{{default_current == index}}" class='angle rb' src='/icon/single.png'></image>
+                <image wx:if="{{default_current == index}}" class='angle lb' src='/icon/single.png'></image>
+                
+                <view class="point {{default_current == index ? 'active' : ''}}"></view>
+                <view class="point-line {{default_current == index ? 'active' : ''}}" style="{{(item[3] + item[1])/2 >= 0.5 ? 'right: 50%' : 'left: 50%'}}">
+                    <text class="icon-bag {{default_current == index ? 'active' : ''}}" style="{{(item[3] + item[1])/2 >= 0.5 ? 'right: calc(100% + 10rpx)' : 'left: calc(100% + 10rpx)'}}">{{name_arr[index]}}</text>
+                </view>
+            </view>
+        </view>
+
+    </view>
+
+    <view class='mid-mask' bindtouchmove='preventMove' hidden='{{!open}}'></view>
+
+    <movable-area style="height: {{windowHeight - windowWidth}}px">
+        <movable-view y="{{y}}" animation="moveChange" direction="{{scrollTop > 0 ? 'horizontal' : 'vertical'}}" bindchange="moveChange" bindtouchend='touchEnd'>
+            <view class='scroll-wrapper' style='height: {{windowHeight * 0.7}}px; transform: translateY({{open ? - windowHeight*0.4 : -(windowHeight - windowWidth) / 2}}px)'>
+                <view class='head-img-wrapper' bindtouchstart='touchStart'>
+                    <image mode='aspectFill' src='{{showUrl}}' wx:if='{{open}}'></image>
+                </view>
+                <scroll-view bindtouchstart='touchStart' scroll-y="{{open}}" style="height: 100%;" bindscroll="scrollView" bindscrolltolower="onReachBottom" catchtouchmove='preventMove'>
+                    <view class='cell-title'>相似商品</view>
+                    <view class='goods-list'>
+                        <view class='goods-item' wx:for="{{goods_list}}" wx:key="{{index}}" data-info="{{item}}" catchtap='showGoodsPopup'>
+                            <view class='goods-content'>
+                                <view class='goods-img-wrapper'>
+                                    <image class='goods-img' mode='aspectFill' src='{{item.pic_url}}'></image>
+                                </view>
+                                <view class='info'>
+                                    <view class='title'>{{item.title}}</view>
+                                    <view class="coupon-sales">
+                                        <view class='discount'>{{item.coupon.coupon_info}}</view>
+                                        <view class='sales'>{{item.view_sales}}</view>
+                                    </view>
+                                    <view class='price-sales'>
+                                        <view class='price'>
+                                            <text class='current'>￥{{item.view_price}}</text>
+                                            <text class='origin'>￥{{item.reserve_price}}</text>
+                                        </view>
+                                    </view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </scroll-view>
+            </view>
+        </movable-view>
+    </movable-area>
+</view>
+
+<view class='goods-mask' catchtouchmove='moveChange' catchtap='hideGoodsPopup' wx:if="{{goods_popup}}">
+    <view class='goods-popup-content' catchtap='moveChange'>
+        <scroll-view scroll-y style='height: 100%'>
+            <swiper class='goods-swiper' current="{{current}}" bindchange="swiperchange">
+                <block wx:for="{{current_info.info.small_images.string}}" wx:key="{{index}}">
+                    <swiper-item>
+                        <image src="{{item}}" mode='aspectFill' class="slide-image" data-imgs='{{current_info.info.small_images.string}}' data-current="{{item}}" catchtap='previewimg' />
+                    </swiper-item>
+                </block>
+            </swiper>
+            <view class='indicator'>{{(current + 1) + '/' + current_info.info.small_images.string.length}}</view>
+            <view class='goods-content'>
+                <view class='info'>
+                    <view class='title popup'>
+                        {{current_info.title}}
+                        <view class='discount popup' style="display: inline-block;" wx:if="current_info.coupon.coupon_info != '' ">{{current_info.coupon.coupon_info}}</view>
+                    </view>
+
+                    <view class='price-sales popup'>
+                        <view class='price'>
+                            <text class='current popup'>￥{{current_info.view_price}}</text>
+                            <text class='origin popup'>￥{{current_info.reserve_price}}</text>
+                        </view>
+                        <view class='sales popup'>{{current_info.view_sales}}</view>
+                    </view>
+                </view>
+            </view>
+            <view class='copy' catchtap='copy'>复制淘口令</view>
+        </scroll-view>
+    </view>
+</view>

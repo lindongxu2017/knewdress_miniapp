@@ -1,0 +1,25 @@
+<!--template/blogger/blogger.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+<view class='blogger-wrapper' wx:if="{{bloggerItem.isShow}}">
+    <view class='header-wrapper'>
+        <view class='head-content-wrapper' bindtap='goBloggerDetail'>
+            <image mode='aspectFill' lazy-load="{{true}}" src='{{bloggerItem.headimgurl != "" ? bloggerItem.headimgurl : bloggerItem.blog_list[0].image_url}}'></image>
+            <view class='name-sourse'>
+                <view class='name'>
+                    <template is="wxParse" data="{{wxParseData:replyTemArray[1]}}" />
+                </view>
+                <view class='sourse'>
+                    <template is="wxParse" data="{{wxParseData:replyTemArray[0]}}" />
+                </view>
+            </view>
+        </view>
+        <view class='focus-btn {{bloggerItem.is_focus == 0 ? "" : "focus"}}' bindtap='focus'>
+            <image hidden='{{bloggerItem.is_focus != 0}}' src='/icon/plus.png'></image>
+            <text hidden='{{bloggerItem.is_focus != 0}}'>关注</text>
+            <text hidden='{{bloggerItem.is_focus == 0}}'>取消关注</text>
+        </view>
+    </view>
+    <view class='list-wrapper'>
+        <image mode='aspectFill' lazy-load="{{true}}" wx:for="{{bloggerItem.blog_list}}" wx:key="{{index}}" src="{{item.image_url}}" data-id="{{item.id}}" data-index="{{index}}" bindtap='goDetail'></image>
+    </view>
+</view>

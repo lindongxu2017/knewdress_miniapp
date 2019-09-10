@@ -1,0 +1,32 @@
+<!--pages/address_operation/address_operation.wxml-->
+<navigationBar nav-title="{{title}}" />
+<van-cell-group>
+    <van-field value="{{ addinfo.name }}" input-align="right" data-key="addinfo.name" bindinput="inputField" clearable label="姓名" placeholder="收货人姓名" />
+    <van-field value="{{ addinfo.tel }}" input-align="right" data-key="addinfo.tel" bindinput="inputField" clearable label="电话" placeholder="收货人手机号" />
+    <van-cell title="省份">
+        <view class="section" slot="right-icon">
+            <picker data-type="0" bindchange="bindPickerChange" range-key='name' range="{{province}}">
+                <view class="picker">{{province_str ? province_str : "请选择"}}</view>
+            </picker>
+        </view>
+    </van-cell>
+    <van-cell title="城市">
+        <view class="section" slot="right-icon">
+            <picker data-type="1" bindchange="bindPickerChange" range-key='name' range="{{city}}">
+                <view class="picker">{{city_str ? city_str : "请选择"}}</view>
+            </picker>
+        </view>
+    </van-cell>
+    <van-cell title="区域">
+        <view class="section" slot="right-icon">
+            <picker data-type="2" bindchange="bindPickerChange" range-key='name' range="{{area}}">
+                <view class="picker">{{area_str ? area_str : "请选择"}}</view>
+            </picker>
+        </view>
+    </van-cell>
+    <van-field value="{{ addinfo.address }}" input-align="right" data-key="addinfo.address" bindinput="inputField" clearable label="详细地址" placeholder="街道门牌、楼层房间号等信息" />
+</van-cell-group>
+<van-switch-cell title="设为默认收货地址" checked="{{ checked }}" active-color="#f44" bind:change="onChange" />
+<view class='submit'>
+    <van-button type='danger' size="large" bindtap='save'>保存</van-button>
+</view>

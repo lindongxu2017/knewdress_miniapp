@@ -1,0 +1,52 @@
+<!--pages/center/center.wxml-->
+<navigationBar></navigationBar>
+<view class='userinfo'>
+    <view class='user-wrapper'>
+        <view class='userAvatar'>
+            <image mode='aspectFill' src='{{userInfo.headimgurl}}' wx:if="{{userInfo}}"></image>
+            <open-data type="userAvatarUrl" class="open-data-userAvatar" wx:else></open-data>
+        </view>
+        <view class='name-desc'>
+            <view class='nums-wrapper'>
+                <view>
+                    <view class='nums-text'>{{userInfo.new_focus || 0}}</view>
+                    <view class='nums-desc'>关注</view>
+                </view>
+                <view>
+                    <view class='nums-text'>{{userInfo.share_number || 0}}</view>
+                    <view class='nums-desc'>分享</view>
+                </view>
+                <view>
+                    <view class='nums-text'>{{userInfo.blog_number || 0}}</view>
+                    <view class='nums-desc'>图片</view>
+                </view>
+            </view>
+            <view class='footer-wrapper'>
+                <view data-url="/pages/setFavorite/setFavorite" bindtap="links">
+                    <view class='collection'>
+                        <text>设置搭配偏好</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+
+    <view class='order-class'>
+        <view class='item' wx:for="{{orderCate}}" wx:key="{{index}}" data-type="{{item.type}}" bindtap="goOrder">
+            <image src='{{item.icon}}'></image>
+            <view class='text'>{{item.text}}</view>
+        </view>
+    </view>
+
+    <van-cell title="商城" icon="bag-o" data-url="/pages/shop/index/index" bindtap="links" />
+    <van-cell title="个人资料" icon="manager-o" data-url="/pages/infomation/infomation" bindtap="links" />
+    <van-cell title="会员提现" icon="vip-card-o" data-url="/pages/shop/cash/cash" bindtap="links" />
+    <van-cell title="提现日志" icon="gold-coin-o" data-url="/pages/shop/cash_detail/cash_detail" bindtap="links" />
+    <van-cell title="余额明细" icon="balance-list-o" data-url="/pages/shop/balance_detail/balance_detail" bindtap="links" />
+    <van-cell title="收货地址" icon="location-o" data-url="/pages/shop/address_list/address_list" bindtap="links" />
+    <van-cell title="我的发布" icon="flag-o" data-url="/pages/myRelease/myRelease" bindtap="links" />
+    <van-cell title="我的收藏" icon="like-o" data-url="/pages/myCollect/myCollect" bindtap="links" />
+    <van-cell title="我的自拍" icon="video-o" data-url="/pages/myPhoto/myPhoto" bindtap="links" />
+    <van-cell title="我的衣橱" icon="home-o" data-url="/pages/myClothes/myClothes?id={{userInfo.id}}" bindtap="links" />
+
+</view>

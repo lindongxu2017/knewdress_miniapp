@@ -1,0 +1,42 @@
+<!--pages/releaseGoods/releaseGoods.wxml-->
+<navigationBar/>
+
+<view class='cell-title' wx:if="{{recommend_list.length > 0}}">推荐关联商品</view>
+
+<view class='img-list' wx:if="{{recommend_list.length > 0}}">
+    <view class='img-item' wx:for="{{recommend_list}}" wx:key="{{index}}">
+        <view class='img-wrapper'>
+            <view class='check-wrapper' data-index="{{index}}" data-type="1" data-id="{{item.id}}" catchtap='checkItem'>
+                <van-icon wx:if="{{item.check}}" custom-class="checked" name="success"/>
+            </view>
+            <image lazy-load src='{{item.photo_x}}' mode="aspectFill"></image>
+        </view>
+    </view>
+</view>
+
+<view class='cell-title'>搜索关联商品</view>
+
+<view class='screen'>
+    <scroll-view scroll-x class='up-cate'>
+        <view class='item {{up_active == index ? "active" : ""}}' wx:for="{{up_cate}}" wx:key="{{index}}" data-index="{{index}}" data-id="{{item.id}}" bindtap='selectUpCate'>{{item.name}}</view>
+    </scroll-view>
+    <scroll-view scroll-x class='down-cate'>
+        <view class='item {{down_active == index ? "active" : ""}}' wx:for="{{down_cate}}" wx:key="{{index}}" data-index="{{index}}" data-id="{{item.id}}" bindtap='selectDownCate'>{{item.name}}</view>
+    </scroll-view>
+</view>
+
+<view class='screen-list'>
+    <view class='img-item' wx:for="{{screen_list}}" wx:key="{{index}}">
+        <view class='img-wrapper'>
+            <view class='check-wrapper' data-index="{{index}}" data-type="2" data-id="{{item.id}}" catchtap='checkItem'>
+                <van-icon wx:if="{{item.check}}" custom-class="checked" name="success"/>
+            </view>
+            <image lazy-load src='{{item.photo_x}}' mode="aspectFill"></image>
+        </view>
+    </view>
+</view>
+
+
+<view class='release-wrapper'>
+    <view class='btn' bindtap='confirm'>确认</view>
+</view>

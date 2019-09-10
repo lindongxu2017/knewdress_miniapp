@@ -1,0 +1,22 @@
+/* pages/infomation/infomation.wxss */
+.release-wrapper {
+    padding: 100rpx 30rpx;
+}
+.release-wrapper .btn {
+    background-color: #FFDB32;
+    border-radius: 27rpx;
+    line-height: 88rpx;
+    text-align: center;
+    font-size: 30rpx;
+    color: #474747;
+}
+.van-cell__title.van-cell__title {
+    max-width: 90px;
+    min-width: 90px;
+}
+.value, .van-cell__value {
+    text-align: left!important;
+}
+.picker.value {
+    color: #333;
+}

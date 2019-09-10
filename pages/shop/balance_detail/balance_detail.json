@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "navigationBar": "/template/navigationBar/navigationBar"
+    },
+    "navigationBarTitleText": "余额明细"
+}

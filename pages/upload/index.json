@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "navigationBar": "/template/navigationBar/navigationBar"
+    },
+    "disableScroll": true
+}

@@ -1,0 +1,5 @@
+<!--template/nomore/nomore.wxml-->
+<view class='nomore' wx:if="{{noMore}}">
+  <image class='img' src='/icon/noMore.png'></image>
+  <view class='text'>搜索不到相关数据</view>
+</view>

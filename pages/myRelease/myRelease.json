@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "list": "/template/list/list",
+        "navigationBar": "/template/navigationBar/navigationBar"
+    },
+    "enablePullDownRefresh": true
+}

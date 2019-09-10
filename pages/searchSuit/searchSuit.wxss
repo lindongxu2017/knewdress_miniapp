@@ -1,0 +1,86 @@
+/* pages/searchSuit/searchSuit.wxss */
+.camera-wrapper {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+camera, .show-view .img  {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+.scan {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: -webkit-linear-gradient(transparent, rgba(27,58,87,0.5)); /* Safari 5.1 - 6.0 */
+  background: linear-gradient(transparent, rgba(27,58,87,0.5)); /* 标准的语法（必须放在最后） */
+  transform-origin: center center 0;
+  animation: scan 5s infinite;
+  -webkit-animation: scan 2s linear infinite; /* Safari 和 Chrome */
+  z-index: 3;
+}
+
+@keyframes scan {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.controls {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 140rpx;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.album {
+  position: absolute;
+  left: 0;
+  top: 20rpx;
+  width: 60rpx;
+  height: 60rpx;
+  padding: 20rpx 30rpx;
+  font-size: 32rpx;
+  color: #fff;
+}
+.reverse {
+  position: absolute;
+  right: 0;
+  top: 20rpx;
+  width: 60rpx;
+  height: 60rpx;
+  padding: 20rpx 30rpx;
+  font-size: 32rpx;
+  color: #fff;
+}
+.btn {
+  position: absolute;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  background-color: #fff;
+  left: 50%;
+  top: 20rpx;
+  margin-left: -50rpx;
+}
+.inset {
+  position: absolute;
+  width: 80rpx;
+  height: 80rpx;
+  left: 10rpx;
+  top: 10rpx;
+  border-radius: 50%;
+  background-color: #fff;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border: 8rpx solid #000;
+}

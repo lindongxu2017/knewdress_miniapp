@@ -1,0 +1,4 @@
+/* pages/collectLable/collectLable.wxss */
+page {
+    min-height: 100%;
+}

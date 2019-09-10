@@ -1,0 +1,8 @@
+<!--template/goods/goods.wxml-->
+<view class='goods-item' bindtap='goDetail'>
+    <view class='img-wrapper'>
+        <image lazy-load class='img' src='{{itemInfo.photo_x}}' mode='aspectFill'></image>
+    </view>
+    <view class='desc'>{{itemInfo.name}}</view>
+    <view class='price'>￥{{itemInfo.price}}</view>
+</view>

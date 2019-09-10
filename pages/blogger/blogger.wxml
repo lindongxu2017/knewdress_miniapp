@@ -1,0 +1,84 @@
+<!--pages/blogger/blogger.wxml-->
+<navigationBar></navigationBar>
+<view class='search-bar' bindtap='goSearch'>
+    <view class='icon-text'>
+        <image mode='widthFix' src='/icon/query.png'></image>
+        <text>输入名字搜索博主</text>
+    </view>
+    <!-- <image catchtap='uploadImg' mode='widthFix' class='uplaod-icon' src='/icon/photo-icon.png'></image> -->
+</view>
+<view class='infoType-wrapper'>
+    <view class='type-item {{infoTypeActive == 0 ? "active" : ""}}' data-type='0' bindtap='switchInfoType'>全部</view>
+    <view class='type-item {{infoTypeActive == 1 ? "active" : ""}}' data-type='1' bindtap='switchInfoType'>推荐</view>
+    <view class='type-item {{infoTypeActive == 2 ? "active" : ""}}' data-type='2' bindtap='switchInfoType' wx:if="{{islogin}}">已关注</view>
+</view>
+
+<view class='swiper-tab-wrapper' style='height: calc(100% - {{83 + 45 + statusBarHeight}}px)'>
+    <swiper duration="{{300}}" bindchange="swiperChange" current='{{infoTypeActive}}'>
+        <!-- 全部博主 -->
+        <swiper-item catchtouchmove="preventSwiper">
+            <view class='content-flex-wrapper'>
+                <bloggerCate bind:selectCate="selectCate"></bloggerCate>
+                <view class='content-list'>
+                    <scroll-view style='height: 100%;'  enable-back-to-top scroll-y bindscrolltolower="scrolltolower">
+                        <view wx:if="{{all.length == 0 && !noData0}}" style='height: 100%; overflow: hidden'>
+                            <bloggerPlaceholder></bloggerPlaceholder>
+                        </view>
+                        <block wx:if="{{all.length > 0}}" wx:for="{{all}}" wx:key="{{index}}">
+                            <blogger bind:asynData="asynData" blogger-item="{{item}}"></blogger>
+                        </block>
+                        <block wx:if="{{all.length > 0}}">
+                            <autoloading is-show="{{isloading0}}"></autoloading>
+                        </block>
+                        <nodata no-more="{{noMore0}}"></nodata>
+                        <view style="margin-top: 30px">
+                            <nomore no-more="{{noData0}}"></nomore>
+                        </view>
+                    </scroll-view>
+                </view>
+            </view>
+        </swiper-item>
+        <!-- 推荐博主 -->
+        <swiper-item catchtouchmove="preventSwiper">
+            <scroll-view enable-back-to-top scroll-y style='height: 100%;' bindscrolltolower="scrolltolower">
+                <view wx:if="{{recommend.length == 0 && !noData1}}" style='height: 100%; overflow: hidden'>
+                    <bloggerPlaceholder></bloggerPlaceholder>
+                </view>
+                <block wx:if="{{recommend.length > 0}}" wx:for="{{recommend}}" wx:key="{{index}}">
+                    <blogger bind:asynData="asynData" blogger-item="{{item}}"></blogger>
+                </block>
+                <block wx:if="{{recommend.length > 0}}">
+                    <autoloading is-show="{{isloading1}}"></autoloading>
+                </block>
+                <nodata no-more="{{noMore1}}"></nodata>
+                <!-- <nomore no-more="{{noData1}}"></nomore> -->
+                <view style="margin-top: 30px">
+                    <nomore no-more="{{noData1}}"></nomore>
+                </view>
+            </scroll-view>
+        </swiper-item>
+        <!-- 我的关注 -->
+        <swiper-item catchtouchmove="preventSwiper">
+            <view class='content-flex-wrapper'>
+                <bloggerCate is-focus="{{1}}" bind:selectCate="selectCate"></bloggerCate>
+                <view class='content-list'>
+                    <scroll-view enable-back-to-top scroll-y style='height: 100%' bindscrolltolower="scrolltolower">
+                        <view wx:if="{{focus.length == 0 && !noData2}}" style='height: 100%; overflow: hidden'>
+                            <bloggerPlaceholder></bloggerPlaceholder>
+                        </view>
+                        <block wx:if="{{focus.length > 0}}" wx:for="{{focus}}" wx:key="{{index}}">
+                            <blogger bind:asynData="asynData" is-show="{{item.isShow}}" blogger-item="{{item}}"></blogger>
+                        </block>
+                        <block wx:if="{{focus.length > 0}}">
+                            <autoloading is-show="{{isloading2}}"></autoloading>
+                        </block>
+                        <nodata no-more="{{noMore2}}"></nodata>
+                        <view style="margin-top: 30px">
+                            <nomore no-more="{{noData2}}"></nomore>
+                        </view>
+                    </scroll-view>
+                </view>
+            </view>
+        </swiper-item>
+    </swiper>
+</view>
